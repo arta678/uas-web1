@@ -687,6 +687,7 @@ h5.h1-title-header span{
 		display: none;
 	}
 	.h1-title-header {
+<<<<<<< HEAD
 		font-size: 14px;
 		text-align: center;
 		width: 100%;
@@ -695,6 +696,15 @@ h5.h1-title-header span{
     .text-atas {
     width: 100%;
     display: inline-block;
+=======
+		font-size: 10px;
+		text-align: center;
+		width: 100%;
+	}
+    .text-atas {
+	width: 100%;
+	display: inline-block;
+>>>>>>> 4ace44a3568ebeb7b62496e707dc6a69cb3a6a09
     }
 
 	.title-tamu {
@@ -754,6 +764,7 @@ h5.h1-title-header span{
         padding: 13px 5px 0 0;
         font-size: 23px;
     }
+<<<<<<< HEAD
     .setting{
         display: block;
         position: absolute;
@@ -769,3 +780,6 @@ h5.h1-title-header span{
 .setting{
     display: none;
 }
+=======
+}
+>>>>>>> 4ace44a3568ebeb7b62496e707dc6a69cb3a6a09
