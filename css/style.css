@@ -386,6 +386,10 @@ li ul li a svg {
   width: 40px;
   padding-left: 5px;
 }
+.fa-angle-left{
+    /*color: yellow;*/
+}
+
 .dashboard-li-icon::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
@@ -683,10 +687,15 @@ h5.h1-title-header span{
 		display: none;
 	}
 	.h1-title-header {
-		font-size: 25px;
+		font-size: 14px;
 		text-align: center;
 		width: 100%;
 	}
+    
+    .text-atas {
+    width: 100%;
+    display: inline-block;
+    }
 
 	.title-tamu {
 		font-size: 25px;
@@ -709,8 +718,9 @@ h5.h1-title-header span{
     }
     #btn-sidebar-toggle {
     	position: absolute;
-    	right: 20px;
-    	top: 23px;
+    	/*right: 20px;
+    	top: 23px;*/
+        font-size: 24px;
     }
 
     button.btn.btn-outline-secondary{
@@ -727,6 +737,7 @@ h5.h1-title-header span{
         margin-bottom: 10px;
     }
 }
+
 @media (max-height: 470px) {
     .personal-info {
         position: initial;
@@ -743,4 +754,18 @@ h5.h1-title-header span{
         padding: 13px 5px 0 0;
         font-size: 23px;
     }
+    .setting{
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: white;
+        padding: 13px 5px 0 0;
+        font-size: 23px;
+    }
+}
+
+
+.setting{
+    display: none;
 }

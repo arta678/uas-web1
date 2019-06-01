@@ -26,9 +26,12 @@
 	    	
 	        <div class="sidebar-header text-center bg-dark">
 	        	<img src="images/arta.jpg" alt="gambar arta wiguna" class="img-fluid gambar-admin">
+	        		<div class="setting">
+	            		<button class="btn btn-outline-secondary" title="Pengaturan"><i class="fas fa-angle-right" title="Tutup"></i></button>
+	            	</div>
 	            <h5 class="title-tamu">ADMIN</h5>
 	            	<div class="dismiss">
-	            		<button class="btn btn-outline-secondary"><i class="fas fa-angle-left"></i></button>
+	            		<button class="btn btn-outline-secondary" title="Tutup"><i class="fas fa-angle-left" title="Tutup"></i></button>
 	            	</div>
 	        </div>
 	        <ul class="list-unstyled components bg-dark">
@@ -95,7 +98,7 @@
 	        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 	            <div class="container-fluid">
 	                <i id="btn-sidebar-toggle" class="fas fa-bars" title="Show/hide sidebar"></i>
-	                <h5 class="h1-title-header d-none d-md-inline-block"><strong>SIMBAH</strong><span>  (Sistem Informasi Bank Sampah)</span></h5>
+	                <h5 class="h1-title-header d-md-inline-block"><strong class="text-atas">SIMBAH</strong><span>  (Sistem Informasi Bank Sampah)</span></h5>
 	                <button class="btn btn-outline-danger btn-header-logout" title="Logout" onclick="btnLogout()">Logout<i class="fas fa-sign-out-alt"></i>
 	                </button>
 
