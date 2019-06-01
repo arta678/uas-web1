@@ -95,7 +95,7 @@
 	        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 	            <div class="container-fluid">
 	                <i id="btn-sidebar-toggle" class="fas fa-bars" title="Show/hide sidebar"></i>
-	                <h5 class="h1-title-header d-none d-md-inline-block"><strong>SIMBAH</strong><span>  (Sistem Informasi Bank Sampah)</span></h5>
+	                <h5 class="h1-title-header d-md-inline-block"><strong class="text-atas">SIMBAH</strong><span>  (Sistem Informasi Bank Sampah)</span></h5>
 	                <button class="btn btn-outline-danger btn-header-logout" title="Logout" onclick="btnLogout()">Logout<i class="fas fa-sign-out-alt"></i>
 	                </button>
 
