@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<title>SIMBAH (Sistem InforMasi BAnk sampaH)</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -20,7 +21,7 @@
 <body>
 	<div class="bungkus-terluar bg-dark">
 	    <!-- Sidebar -->
-	    <nav id="sidebar">
+	    <nav id="sidebar" class="bg-dark">
 	    	<div class="overlay index-img-screen bg-dark"></div>
 	    	
 	        <div class="sidebar-header text-center bg-dark">
@@ -91,13 +92,13 @@
 	    </nav>
 	    <!-- HEADER PAGE CONTENT -->
 	    <div id="content">
-	        <nav class="navbar navbar-expand-sm bg-dark">
+	        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 	            <div class="container-fluid">
 	                <i id="btn-sidebar-toggle" class="fas fa-bars" title="Show/hide sidebar"></i>
-	                <h1 class="h1-title-header">DASHBOARD</h1>
+	                <h5 class="h1-title-header d-none d-md-inline-block"><strong>SIMBAH</strong><span>  (Sistem Informasi Bank Sampah)</span></h5>
 	                <button class="btn btn-outline-danger btn-header-logout" title="Logout" onclick="btnLogout()">Logout<i class="fas fa-sign-out-alt"></i>
 	                </button>
-	                
+
 	            </div>
 	        </nav>
 	        <!-- CONTENT -->
