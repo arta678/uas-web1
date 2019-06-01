@@ -289,6 +289,9 @@ a, a:hover, a:focus {
 .dismiss {
     display: none;
 }
+.setting{
+    display: none;
+}
 
 .menu-categori{
     margin-left: 10px;
@@ -764,7 +767,7 @@ h5.h1-title-header span{
         padding: 13px 5px 0 0;
         font-size: 23px;
     }
-<<<<<<< HEAD
+/* HEAD*/
     .setting{
         display: block;
         position: absolute;
@@ -775,11 +778,3 @@ h5.h1-title-header span{
         font-size: 23px;
     }
 }
-
-
-.setting{
-    display: none;
-}
-=======
-}
->>>>>>> 4ace44a3568ebeb7b62496e707dc6a69cb3a6a09
