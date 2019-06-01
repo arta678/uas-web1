@@ -26,10 +26,10 @@
 	    	
 	        <div class="sidebar-header text-center bg-dark">
 	        	<img src="images/arta.jpg" alt="gambar arta wiguna" class="img-fluid gambar-admin">
-	        		<div class="setting">
+	        	<div class="setting">
 	            		<button class="btn btn-outline-secondary" title="Pengaturan"><i class="fas fa-angle-right" title="Tutup"></i></button>
 	            	</div>
-	            <h5 class="title-tamu">ADMIN</h5>
+	            	<h5 class="title-tamu">ADMIN</h5>
 	            	<div class="dismiss">
 	            		<button class="btn btn-outline-secondary" title="Tutup"><i class="fas fa-angle-left" title="Tutup"></i></button>
 	            	</div>
