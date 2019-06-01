@@ -20,7 +20,7 @@
 <body>
 	<div class="bungkus-terluar bg-dark">
 	    <!-- Sidebar -->
-	    <nav id="sidebar">
+	    <nav id="sidebar" class="bg-dark">
 	    	<div class="overlay index-img-screen bg-dark"></div>
 	    	
 	        <div class="sidebar-header text-center bg-dark">
