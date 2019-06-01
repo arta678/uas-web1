@@ -683,10 +683,14 @@ h5.h1-title-header span{
 		display: none;
 	}
 	.h1-title-header {
-		font-size: 25px;
+		font-size: 10px;
 		text-align: center;
 		width: 100%;
 	}
+    .text-atas {
+	width: 100%;
+	display: inline-block;
+    }
 
 	.title-tamu {
 		font-size: 25px;
