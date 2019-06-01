@@ -475,7 +475,7 @@ li ul li a svg {
 /*           CONTENT HEADER            */
 /*-------------------------------------*/
 #content {
-    width: calc(100% - 280px);
+    width: calc(100% - 200px); /*lebar asli dikurang lebar sidebar*/
     min-height: 100vh;
     transition: all 0.20s;
     position: absolute;
