@@ -83,6 +83,8 @@
 	                </button>
 	            </div>
 	        </nav>
+
+	        
 	        <!-- CONTENT TABLE -->
 	        <div class="container table-tamu">
 				<div class="wrapper-table">
@@ -189,7 +191,12 @@
 		//DATA TABLES
 		$(document).ready(function() {
 		    $('#tb-tamu').dataTable( {
-		    	//i = info, l = lenght, f = find, t = table, B = buttons, p = pagination
+		    	//i = info, 
+		    	// l = lenght, 
+		    	// f = find, 
+		    	// t = table, 
+		    	// B = buttons, 
+		    	// p = pagination
 		    	dom:
 				    "<'row'<'col-sm-6'l><'col-sm-6'f>>" +
 				    "<'row'<'col-sm-12't>>" +

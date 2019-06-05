@@ -135,51 +135,72 @@ a, a:hover, a:focus {
 
 /*-------------------------------------*/
 /*              Dashboard              */
-/*-------------------------------------*/
+/*--------------------icon-content-----------------*/
 .container.index-dashboard {
     margin-top: 90px;
     padding: 0 20px;
 }
 
 .dashboard-content {
-    height: 120px;
+    height: auto;
     margin: 10px 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    /*box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);*/
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-    border-radius: 5px;
+    /*border-radius: 5px;*/
     padding: 15px;
     position: relative;
     color: white;
 }
 .dashboard-content:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    /*box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);*/
 }
-
-.title-content, .keterangan  {
-    color: white;
+/*.keterangan{
+     margin-bottom: 5px;
+    margin-left: 30px;
+    font-size: 50px;
+}*/
+.title-content  {
+    /*font-size: 20px;*/
+    color: #636363;
     margin-bottom: 5px;
+    margin-left: 45px;
+    font-weight: 100;
 }
 
 .keterangan {
-    font-weight: bold;
-    font-size: 2vw;
+    /*font-weight: bold;*/
+    font-size: 3vw;
+    /*margin-bottom: 5px;*/
+    /*position: absolute;
+    right: 15px;
+    top: 0;*/
+    color: #33b35a;
+    margin-left: 40px;
+    font-weight: 200;
 }
 
 .title-dashboard-content p::after {
-    content: '';
+   /* content: '';
     height: 3px;
     width: 200px;
     background-color: gray;
     position: absolute;
     bottom: 20%;
     left: 10px;
+     position: absolute;
+    bottom: 20%;
+    left: 10px;
+    /*align-items: center;*/*/
+    
 }
 
 .icon-content {
     position: absolute;
-    top: 0px;
-    right: 10px;
-    font-size: 50px;
+    top: 14px;
+    /*right: 10px;*/
+    left: 10px;
+    font-size: 30px;
+    color: #33b35a;
 }
 
 .content-dashboard-footer {
@@ -244,11 +265,22 @@ a, a:hover, a:focus {
     .icon.icon-content {
         display: block;
     }
-    .title-content, .keterangan {
-        text-align: initial;
+    .title-content{
+        width: 80px;
+        /*text-align: initial;*/
+         text-align: left;
+         font-size: 20px;
+         /*margin-left: 10px;*/
+
     }
     .keterangan {
-        font-size: 30px;
+        position: absolute;
+        left: 150px;
+        top: 0;
+
+        font-size: 70px;
+        font-weight: 200;
+        /*text-align: left;*/
     }
 
 }
@@ -290,6 +322,11 @@ a, a:hover, a:focus {
     display: none;
 }
 
+.setting{
+    display: none;
+}
+
+
 .menu-categori{
     margin-left: 10px;
     font-weight: 800;
@@ -302,9 +339,9 @@ a, a:hover, a:focus {
 
 }
 
-.dismiss svg {
-    color: whitesmoke;
-}
+/*.dismiss svg {
+    color: #FFE100;
+}*/
 
 .wrapper-img-sidebar {
 	z-index: -9;
@@ -390,10 +427,33 @@ li ul li a svg {
     /*color: yellow;*/
 }
 
+.laporan-li-icon:before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f080";
+}
+
+.penarikan-li-icon:before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f155";
+}
+
+.penjualan-li-icon::before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f0d1";
+}
 .dashboard-li-icon::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    content: "\f3fd";
+    content: "\f2ed";
+}
+
+.sampah-li-icon::before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f1f8";
 }
 .tamu-li-icon::before {
     font-family: "Font Awesome 5 Free";
@@ -414,6 +474,12 @@ li ul li a svg {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     content: "\f07a";
+}
+
+.penjualan-li-icon{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f0d1";
 }
 
 .bungkus-bt-logout {
@@ -492,7 +558,7 @@ h5.title-tamu {
     position: absolute;
     top: 0;
     right: 0;
-    /*background-color: #fffafa; */
+    background-color: #e2e2e2; 
 }
 
 #content.active {
@@ -515,10 +581,22 @@ h5.title-tamu {
 
 .btn-header-logout {
     width: 110px;
+    position: fixed;
+    right: 10px;
+    color: #33b35a;
+    cursor: pointer;
 }
 
+.text-atas {
+/*    width: 100%;
+    display: inline-block;
+        font-size: 10px;
+        text-align: center;
+        width: 100%;*/
+    }
+
 .h1-title-header {
-    width: 70%;
+    width: 100%;
     transition: all 0.10s cubic-bezier(0.6, 0, 0, 0.99); 
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
@@ -527,6 +605,7 @@ h5.title-tamu {
     font-size: 25px;
     font-weight: 600;
     text-align: left;
+    margin-left: 20px;
 }
 
 h5.h1-title-header strong{
@@ -553,16 +632,36 @@ h5.h1-title-header span{
 /*--------------------*/
 /*   CONTENT TABLE    */
 /*--------------------*/
+/*.table-responsive{
+    display: table;
+}*/
+
+/*.form-search{
+    position: absolute;
+    right: 10px;
+    top: 10p
+}*/
+
+.bg-warna-tambah{
+    background-color: #1DAB3D;
+    color: #fff;
+}
+
+.header-table{
+    color: #33b35a;
+
+}
 .wrapper-table {
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-	padding: 8px;
-	border-radius: 10px;
+	padding: 20px;
+	/*border-radius: 10px;*/
 	background-color: white;
 	margin-bottom: 20px;
+
 }
 
 .container.table-tamu {
-	margin-top: 100px;
+	margin-top: 90px;
 }
 
 .bungkus-bt-new {
@@ -602,6 +701,8 @@ h5.h1-title-header span{
 /* INDIVUAL STYLE CONTENT TABLE - TAMU*/
 .bt-input-tamu {
 	font-weight: bold;
+
+
 }
 
 .bt-input-tamu svg {
@@ -612,9 +713,25 @@ h5.h1-title-header span{
 	padding: 0px 5px;
 }
 
+
+#tb-sampah{
+    table-responsive:none;
+}
+
 /*--------------------*/
 /*     MODAL INSERT   */
 /*--------------------*/
+.from-tambah-sampah{
+    margin-top: 15px;
+}
+.btn-modal-lingkaran{
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.warna-modal{
+    background-color: #FFFFFF;
+}
 .modal-dialog {
 	border-radius: 0.3rem;
 }
@@ -684,11 +801,10 @@ h5.h1-title-header span{
         margin-bottom: 50px;
     }
 	.btn-header-logout {
-		display: none;
+		display: block;   
 	}
 	.h1-title-header {
-<<<<<<< HEAD
-		font-size: 14px;
+		font-size: 20px;
 		text-align: center;
 		width: 100%;
 	}
@@ -696,15 +812,15 @@ h5.h1-title-header span{
     .text-atas {
     width: 100%;
     display: inline-block;
-=======
 		font-size: 10px;
 		text-align: center;
 		width: 100%;
+        /*display: none;*/
+        /*display: none;*/
 	}
-    .text-atas {
-	width: 100%;
-	display: inline-block;
->>>>>>> 4ace44a3568ebeb7b62496e707dc6a69cb3a6a09
+    h5.h1-title-header span{
+
+    display: none;
     }
 
 	.title-tamu {
@@ -754,32 +870,25 @@ h5.h1-title-header span{
     }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1000px) {
     .dismiss {
         display: block;
         position: absolute;
         right: 0;
         top: 0;
-        color: white;
-        padding: 13px 5px 0 0;
+        color: #33b35a;
+        padding: 15px 15px 0 0;
         font-size: 23px;
     }
-<<<<<<< HEAD
-    .setting{
+    .setting {
         display: block;
         position: absolute;
-        right: 0;
+        left: 0;
         top: 0;
         color: white;
-        padding: 13px 5px 0 0;
+        padding: 20px 5px 0 5px;
         font-size: 23px;
     }
 }
 
 
-.setting{
-    display: none;
-}
-=======
-}
->>>>>>> 4ace44a3568ebeb7b62496e707dc6a69cb3a6a09

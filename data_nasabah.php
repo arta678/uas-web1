@@ -1,8 +1,8 @@
 <?php
 	include_once ('koneksi.php');
-	$data = $koneksi->prepare('SELECT * FROM tb_tamu');
-	$data->execute();
-	$hitung = $data->rowCount();
+	$nasabah = $koneksi->prepare('SELECT * FROM nasabah');
+	$nasabah->execute();
+	$jumlahnasabah = $nasabah->rowCount();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,41 +25,39 @@
 	    	<div class="overlay index-img-screen bg-dark"></div>
 	    	
 	        <div class="sidebar-header text-center bg-dark">
-	        	<img src="images/arta.jpg" alt="gambar arta wiguna" class="img-fluid gambar-admin">
-	        		<div class="setting">
-	            		<button class="btn btn-outline-secondary" title="Pengaturan"><i class="fas fa-angle-right" title="Tutup"></i></button>
-	            	</div>
+	        	<a href=""><img src="images/arta.jpg" alt="gambar arta wiguna" class="img-fluid gambar-admin"></a>
+	        		
 	            <h5 class="title-tamu">ADMIN</h5>
 	            	<div class="dismiss">
-	            		<button class="btn btn-outline-secondary" title="Tutup"><i class="fas fa-angle-left" title="Tutup"></i></button>
+	            		<i class="fas fa-times fa-lg" title="Tutup"></i>
 	            	</div>
 	        </div>
 	        <ul class="list-unstyled components bg-dark">
 	        	<h5 class="menu-categori">MASTER DATA</h5>
+	            <li >
+	            	<a href="home.php" class="icon tipeKamar-li-icon">Home</a>
+	            </li>
 	            <li class="active">
-	            	<a href="dashboard.php" class="icon dashboard-li-icon">Home</a>
+	            	<a href="data_nasabah.php" class="icon tamu-li-icon">Data Nasabah</a>
 	            </li>
 	            <li>
-	            	<a href="index_tamu.php" class="icon tamu-li-icon">Data Nasabah</a>
+	            	<a href="#" class="icon tamu-li-icon">Data Pengepul</a>
 	            </li>
 	            <li>
-	            	<a href="#" class="icon reservasi-li-icon">Data Pengepul</a>
-	            </li>
-	            <li>
-	            	<a href="#" class="icon tipeKamar-li-icon">Data Sampah</a>
+	            	<a href="data_sampah.php" class="icon dashboard-li-icon">Data Sampah</a>
 	            </li>
 	            <h5 class="menu-categori">TRANSAKSI</h5>
 	            <li>
 	            	<a href="dashboard.php" class="icon dashboard-li-icon">Setoran Sampah</a>
 	            </li>
 	            <li>
-	            	<a href="index_tamu.php" class="icon tamu-li-icon">Penarikan Saldo</a>
+	            	<a href="index_tamu.php" class="icon penarikan-li-icon">Penarikan Saldo</a>
 	            </li>
 	            <li>
-	            	<a href="#" class="icon reservasi-li-icon">Penjualan sampah</a>
+	            	<a href="#" class="icon penjualan-li-icon">Penjualan sampah</a>
 	            </li>
 	            <li>
-	            	<a href="#" class="icon tipeKamar-li-icon">Laporan</a>
+	            	<a href="#" class="icon laporan-li-icon">Laporan</a>
 	            </li>
 	           
 	            <!-- <div class="bungkus-bt-logout">
@@ -96,11 +94,14 @@
 	    <!-- HEADER PAGE CONTENT -->
 	    <div id="content">
 	        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-	            <div class="container-fluid">
+	            <div class="container-fluid text-center">
 	                <i id="btn-sidebar-toggle" class="fas fa-bars" title="Show/hide sidebar"></i>
-	                <h5 class="h1-title-header d-md-inline-block"><strong class="text-atas">SIMBAH</strong><span>  (Sistem Informasi Bank Sampah)</span></h5>
-	                <button class="btn btn-outline-danger btn-header-logout" title="Logout" onclick="btnLogout()">Logout<i class="fas fa-sign-out-alt"></i>
-	                </button>
+	                <h5 class="h1-title-header d-md-inline-block "><strong class="text-atas" >SIMBAH</strong>
+	                	<span>(Sistem Informasi Bank Sampah)</span></h5>
+	                <!-- <button class="btn btn-outline-danger btn-header-logout" title="Logout" onclick="btnLogout()">Logout -->
+	                	<!-- <i class="fas fa-sign-out fa-2x btn-header-logout" title="Logout" onclick="btnLogout()"></i> -->
+	                	<i class="fas fa-sign-out-alt fa-2x btn-header-logout" title="Logout" onclick="btnLogout()"></i>
+	                <!-- </button> -->
 
 	            </div>
 	        </nav>
@@ -108,53 +109,68 @@
 	        <div class="container index-dashboard">
 	        	<!-- Here..... -->
 	        	<div class="row">
-	        		<div class="col-sm-12 title-dashboard-content">
+	        		<div class="col-sm-12 title-dashboard-content text-center">
 	        			<p>Master Data & Transaksi</p>
+	        			<hr>
 	        		</div>
 	        		<div class="col-sm-3">
-	        			<div class="dashboard-content bg-secondary">
-	        				<p class="title-content">Data Tamu</p>
-	        				<p class="keterangan">Total: <?php echo "$hitung"; ?></p>
+	        			<div class="dashboard-content ">
+	        				<a href="dashboard.php" title="Lihat Nasabah">
+	        				<p class="title-content">BANYAK NASABAH (Org) </p>
+	        				<p class="keterangan"><?php echo "$jumlahnasabah"; ?></p>
 	        				<div class="icon icon-content"><i class="fas fa-users"></i></div>
-	        				<a href="index_tamu.php" class="content-dashboard-footer foo-1">
-	        					<p>Lainnya</p>
 	        				</a>
+	        				<!-- <a href="index_tamu.php" class="content-dashboard-footer foo-1">
+	        					<p>Lainnya</p>
+	        				</a> -->
 	        			</div>
 	        		</div>
 	        		<div class="col-sm-3">
-	        			<div class="dashboard-content bg-primary">
-	        				<p class="title-content">Data Reservasi</p>
-	        				<p class="keterangan">Total: <?php echo "$hitung"; ?></p>
-	        				<div class="icon icon-content"><i class="fas fa-calendar-alt"></i></div>
-	        				<a href="#" class="content-dashboard-footer foo-2">
-	        					<p>Lainnya</p>
+	        			<div class="dashboard-content">
+	        				<a href="dashboard.php" title="Lihat Sampah">
+	        				<p class="title-content">BERAT TOTAL SAMPAH (Kg)</p>
+	        				<p class="keterangan"><?php echo "$jumlahnasabah"; ?></p>
+	        				<div class="icon icon-content"><i class="fas fa-trash-alt"></i></div>
 	        				</a>
+	        				
+	        				<!-- <a href="#" class="content-dashboard-footer foo-2">
+	        					<p>Lainnya</p>
+	        				</a> -->
 	        			</div>
 	        		</div>
 	        		<div class="col-sm-3">
-	        			<div class="dashboard-content bg-success">
-	        				<p class="title-content">Data Tipe Kamar</p>
-	        				<p class="keterangan">Total: <?php echo "$hitung"; ?></p>
-	        				<div class="icon icon-content"><i class="fas fa-home"></i></div>
-	        				<a href="#" class="content-dashboard-footer foo-3">
-	        					<p>Lainnya</p>
-	        				</a>
-	        			</div>
-	        		</div>
-	        		<div class="col-sm-3">
-	        			<div class="dashboard-content bg-danger">
-	        				<p class="title-content">Transaksi Pembayaran</p>
-	        				<p class="keterangan">Total: <?php echo "$hitung"; ?></p>
+	        			<div class="dashboard-content">
+	        				<a href="dashboard.php" title="Lihat Setoran Hari Ini">
+	        				<p class="title-content">SETORAN HARI INI (Kg) </p>
+	        				<p class="keterangan"><?php echo "$jumlahnasabah"; ?></p>
 	        				<div class="icon icon-content"><i class="fas fa-shopping-cart"></i></div>
-	        				<a href="#" class="content-dashboard-footer foo-4">
-	        					<p>Lainnya</p>
 	        				</a>
+	        				<!-- <a href="#" class="content-dashboard-footer foo-3">
+	        					<p>Lainnya</p>
+	        				</a> -->
+	        			</div>
+	        		</div>
+	        		<div class="col-sm-3">
+	        			<div class="dashboard-content">
+	        				<a href="dashboard.php" title="Lihat Setoran Hari Ini">
+	        				<p class="title-content">BANYAK TRANSAKSI</p>
+	        				<p class="keterangan"><?php echo "$jumlahnasabah"; ?></p>
+	        				<div class="icon icon-content"><i class="fas fa-shopping-cart"></i></div>
+	        				</a>
+	        				<!-- <a href="#" class="content-dashboard-footer foo-4">
+	        					<p>Lainnya</p>
+	        				</a> -->
 	        			</div>
 	        		</div>
 	        	</div>
+
+
+
+
 	        	<div class="row">
-	        		<div class="col-sm-12 title-dashboard-content">
-	        			<p>Laporan Master Data & Transaksi</p>
+	        		<div class="col-sm-12 title-dashboard-content text-center">
+	        			<p>Laporan</p>
+	        			<hr>
 	        		</div>
 	        		<div class="col-sm-3">
 	        			<div class="dashboard-content"></div>
@@ -191,7 +207,7 @@
 		    $('#btn-sidebar-toggle').on('click', function () {
                 $('#sidebar, #content').toggleClass('active');
                 $('.h1-title-header').toggleClass('increase-width');
-                $('.btn-header-logout').toggleClass('i-hide-tamu');
+                // $('.btn-header-logout').toggleClass('i-hide-tamu');
             })
 		});
 		$(document).ready(function () {
@@ -203,25 +219,20 @@
 		$(function () {
 			$('[data-toggle="tooltip"]').tooltip();
 		});
+
+
 		//FUNCTION LOGOUT - BUTTON - SWEETALERT
 		function btnLogout() {
 			Swal.fire({
-				title: "Anda yakin ingin keluar dari sistem?",
-				type: "question",
+				title: "Apa yakin ingin keluar?",
 				confirmButtonColor: "#d33",
 				cancelButtonColor: "#aaa",
-				confirmButtonText: "IYA ! <i class='fas fa-sign-out-alt'></i>",
+				confirmButtonText: "Ya",
+				cancelButtonText:"Tidak",
 				showCancelButton: true
 			}).then((result) => {
 				if (result.value) {
-				    Swal.fire({
-				    	title: "Goodbye, see you later!",
-				    	type: "success",
-				    	showConfirmButton: false,
-				    	timer: 2000
-				    }).then(function() {
-						window.location = 'index.php';
-					})
+					window.location = 'index.php';
 				}
 			})
 		};

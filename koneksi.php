@@ -2,7 +2,7 @@
 	$host 	= "localhost";
 	$user 	= "artawgn";
 	$pass 	= "kopibali";
-	$db 	= "db_reservasi";
+	$db 	= "uas_web";
 
 	try {
 		$koneksi = new PDO("mysql:host={$host};dbname={$db}", $user, $pass);
@@ -11,4 +11,6 @@
 	catch(PDOException $e) {
 		echo $e->getMessage();
 	}
+
+
 ?>
