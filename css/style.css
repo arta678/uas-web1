@@ -24,6 +24,18 @@ a, a:hover, a:focus {
 /*-------------------------------------*/
 /*             LOGIN FORM              */
 /*-------------------------------------*/
+
+input.text-bold{
+    font-style: bold;
+    /*font-size: px;*/
+    font-weight: 800;
+}
+.text-font{
+    font-style: bold;
+    font-weight: 400;
+
+}
+
 .wrapper-login {
     display: flex;
     height: 100%;
@@ -321,6 +333,10 @@ a, a:hover, a:focus {
 .dismiss {
     display: none;
 }
+.setting{
+    display: none;
+}
+
 
 .setting{
     display: none;
@@ -768,7 +784,8 @@ h5.h1-title-header span{
 
 /* INDIVUAL STYLE MODAL INSERT - TAMU*/
 .modal-form-tamu {
-	padding-left: 50px;
+	/*padding-left: 50px;*/
+    background-color: #C4C4C4;
 }
 
 .foo-copyright {
@@ -880,7 +897,11 @@ h5.h1-title-header span{
         padding: 15px 15px 0 0;
         font-size: 23px;
     }
+<<<<<<< HEAD
     .setting {
+=======
+    .setting{
+>>>>>>> 0855db541786ce6d6c49f0b782ea3fd18db0092d
         display: block;
         position: absolute;
         left: 0;
@@ -890,5 +911,8 @@ h5.h1-title-header span{
         font-size: 23px;
     }
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 0855db541786ce6d6c49f0b782ea3fd18db0092d

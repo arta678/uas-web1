@@ -1747,7 +1747,7 @@
 			// Backwards compatibility - if there is no sEmptyTable given, then use the same as
 			// sZeroRecords - assuming that is given.
 			if ( ! lang.sEmptyTable && zeroRecords &&
-				defaults.sEmptyTable === "No data available in this table" )
+				defaults.sEmptyTable === "Tidak Ada Data" )
 			{
 				_fnMap( lang, lang, 'sZeroRecords', 'sEmptyTable' );
 			}
@@ -11435,7 +11435,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sEmptyTable": "No data available in this table",
+			"sEmptyTable": "Tidak Ada Data",
 	
 	
 			/**
@@ -11628,7 +11628,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Show _MENU_ entries",
+			"sLengthMenu": "Tampilkan _MENU_ Data",
 	
 	
 			/**
@@ -11708,7 +11708,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Search:",
+			"sSearch": "",
 	
 	
 			/**
@@ -11719,7 +11719,7 @@
 			 *  @dtopt Language
 			 *  @name DataTable.defaults.language.searchPlaceholder
 			 */
-			"sSearchPlaceholder": "Search on this table...",
+			"sSearchPlaceholder": "Cari Data Sampah...",
 	
 	
 			/**

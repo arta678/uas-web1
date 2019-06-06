@@ -1,46 +1,21 @@
-
 <?php 
-include_once("koneksi.php");
-
-// PROSES TAMBAH DATA SAMPAH
-try{
-	if(isset($_POST['submit-sampah-tambah'])) {
-		$id_sampah = $_POST['id_sampah'];
-		$nama_sampah = $_POST['nama_sampah'];
-		$kategori_sampah = $_POST['kategori_sampah'];
-		$harga_datang = $_POST['harga_datang'];
-		$harga_jemput = $_POST['harga_jemput'];
-		$harga_pengepul = $_POST['harga_pengepul'];
-		$keterangan_sampah = $_POST['keterangan_sampah'];
-		//insert data to database
-		$sql = "INSERT INTO sampah VALUES (:id_sampah, :nama_sampah, :kategori_sampah, :harga_datang, :harga_jemput, :harga_pengepul,:keterangan_sampah)";
-		$query = $koneksi->prepare($sql);
-		$query->bindparam(':id_sampah', $id_sampah);
-		$query->bindparam(':nama_sampah', $nama_sampah);
-		$query->bindparam(':kategori_sampah', $kategori_sampah);
-		$query->bindparam(':harga_datang', $harga_datang);
-		$query->bindparam(':harga_jemput', $harga_jemput);
-		$query->bindparam(':harga_pengepul', $harga_pengepul);
-		$query->bindparam(':keterangan_sampah', $keterangan_sampah);
-		
-		$query->execute();
-		echo "<script>
-			setTimeout(function () {
-				Swal.fire({
-					type: 'success',
-					title: 'Sukses menambah data sampah!',
-					toast: true,
-  					showConfirmButton: true,
-  					background:'#91F563'
-				})
-			});
-		</script>";
-	}
-          
-        }catch(PDOException $e){
-            echo $e->getMessage();
-        }
-	
+// include_once("koneksi.php");
+// 	$id = $_GET['id_tamu'];
+// 	$sql = "DELETE FROM tb_tamu WHERE id_tamu = '$id'";
+// 	$koneksi->exec($sql);
+// 	echo "<script>
+// 		setTimeout(function () { 
+// 			Swal.fire({
+// 			    type: 'success',
+// 				title: '<p>Data telah dihapus</p>',
+// 				text: 'Halaman akan di-direct ke index dalam 3 detik!',
+// 				showConfirmButton: false,
+// 				timer: 3000
+// 			}).then(function() {
+// 				window.location.href = 'index_tamu.php';
+// 			})
+// 		});
+// 	</script>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +37,7 @@ try{
 	    	<div class="overlay index-img-screen bg-dark"></div>
 	    	
 	        <div class="sidebar-header text-center bg-dark">
-	        	<a href=""><img src="images/arta.jpg" alt="gambar arta wiguna" class="img-fluid gambar-admin"></a>
+	        	<a href="" ><img src="images/arta.jpg" alt="gambar arta wiguna" class="img-fluid gambar-admin"></a>
 	        		
 	            <h5 class="title-tamu">ADMIN</h5>
 	            	<div class="dismiss">
@@ -112,91 +87,87 @@ try{
 <!-- CONTEN TABLE -->
 	        	<div class="container table-tamu ">
 	        		
-				<div class="wrapper-table">
-					<div class="row">
-						<div class="bungkus-bt-new  ">
-	        			<button class="btn btn-outline-success bt-input-tamu " data-toggle="modal" data-target="#popUpInsert-sampah"><i class="fas fa-plus"></i>Sampah</button>
-	        			</div>
-	        			
-	        			
-	        		
-					
-					
-					<!-- <div class="table-responsive"> -->
-					<table id="tb-sampah" class="table table-striped nowrap table-hover table-sm  table-bordered "  cellspacing="0" width="100%">
-				        <thead class="thead-dark text-center">
-				            <tr>
-				                <th class="header-table" width="60px;" rowspan="2"></th>
-				                <th class="header-table"  rowspan="2" ><input type="checkbox" name="pilih[]" value="<?php echo $d['id'];?>"></th>
+					<div class="wrapper-table">
+							<div class="bungkus-bt-new  ">
+		        			<button class="btn btn-outline-success bt-input-tamu " data-toggle="modal" data-target="#popUpInsert-sampah"><i class="fas fa-plus"></i>Sampah</button>
+		        			</div>
+						<!-- <div class="table-responsive"> -->
+						<table id="tb-sampah" class="table table-striped nowrap table-hover table-sm  table-bordered "  cellspacing="0" width="100%">
+					        <thead class="thead-dark text-center">
+					            <tr>
+					                <th class="header-table" width="60px;" rowspan="2"></th>
+					                <th class="header-table"  rowspan="2" ><input type="checkbox" name="pilih[]" value="<?php echo $d['id'];?>"></th>
 
-				                <th class="header-table" width="50px;" rowspan="2">KODE</th>
-				                <th class="header-table" rowspan="2">JENIS NAMA</th>
-				                <th class="header-table" rowspan="2">KETEGORI</th>
-				                <th class="header-table " colspan="3">Harga Sampah</th>
-				                <!-- <th class="header-table" width="100px;">DHS 2</th>
-				                <th class="header-table" width="100px;">PENGEPUL</th> -->
-				                <!-- <th class="header-table" width="100px;"><center>Aksi</center></th> -->
-				            </tr>
-				             <tr>
-				                <!-- <th class="header-table" width="100px;" >Aksi</th>
-				                <th class="header-table" width="100px;" >KODE</th>
-				                <th class="header-table" >NAMA</th>
-				                <th class="header-table" width="150px;">KETEGORI</th> -->
-				                <th class="header-table" >Datang</th>
-				                <th class="header-table" >Jemput</th>
-				                <th class="header-table" >Pengepul</th>
-				                <!-- <th class="header-table" width="100px;"><center>Aksi</center></th> -->
-				            </tr>
+					                <th class="header-table" width="50px;" rowspan="2">Kode</th>
+					                <th class="header-table" rowspan="2">Jenis Sampah</th>
+					                <th class="header-table" rowspan="2">Kategori</th>
+					                <th class="header-table " colspan="3">Harga Sampah</th>
+					                <!-- <th class="header-table" width="100px;">DHS 2</th>
+					                <th class="header-table" width="100px;">PENGEPUL</th> -->
+					                <!-- <th class="header-table" width="100px;"><center>Aksi</center></th> -->
+					            </tr>
+					             <tr>
+					                <!-- <th class="header-table" width="100px;" >Aksi</th>
+					                <th class="header-table" width="100px;" >KODE</th>
+					                <th class="header-table" >NAMA</th>
+					                <th class="header-table" width="150px;">KETEGORI</th> -->
+					                <th class="header-table" >Datang</th>
+					                <th class="header-table" >Jemput</th>
+					                <th class="header-table" >Pengepul</th>
+					                <!-- <th class="header-table" width="100px;"><center>Aksi</center></th> -->
+					            </tr>
 
-				        </thead>
-				        <tbody>
-				            <?php
-					            include_once("koneksi.php");
-								$sql = "SELECT * FROM sampah";
-								$no=1;
-								foreach ($koneksi->query($sql) as $row) {
+					        </thead>
+					        <tbody>
+					            <?php
+						            include_once("koneksi.php");
+									$sql = "SELECT * FROM sampah";
+									$no=1;
+									foreach ($koneksi->query($sql) as $row) {
+										?>
+										<tr>
+											
+											<td class="text-nowrap" align="center">
+
+								    			<a href='#popUpDelete-Sampah_<?php echo $row['id_sampah']; ?>' data-toggle='modal' title='Lihat Data' data-target='#popUpDelete-Sampah_<?php echo $row['id_sampah']; ?>'>
+													<button class='btn  btn-data-aksi'>
+														<i class='far fa-eye'></i>
+													</button>
+												</a>
+
+												<a href='#update_sampah_<?php echo $row['id_sampah']; ?>' data-toggle='modal' title='Edit Data' data-target='#update_sampah_<?php echo $row['id_sampah']; ?>'>
+													<button class='btn  btn-data-aksi'>
+														<i class='fas fa-pen'></i>
+													</button>
+												</a>
+												<!-- <a href='#popUpDelete-Tamu_<?php echo $row['id_sampah']; ?>' data-toggle='modal' title='Hapus Data' data-target='#popUpDelete-Tamu_<?php echo $row['id_sampah']; ?>'>
+													<button class='btn btn-outline-danger btn-data-aksi'>
+														<i class='fas fa-times'></i>
+													</button>
+												</a> -->
+											</td>
+											<td><input type="checkbox" name="pilih[]" value="<?php echo $d['id']; ?>" ></td>
+											<td><?php echo $row['id_sampah']; ?></td>
+											<td><?php echo $row['nama_sampah']; ?></td>
+											<td><?php echo $row['kategori_sampah']; ?></td>
+								    		<td>Rp. <?php echo $row['harga_datang']; ?></td>
+								    		<td>Rp. <?php echo $row['harga_jemput']; ?></td>
+								    		<td>Rp. <?php echo $row['harga_pengepul']; ?></td>
+								    		
+								    		
+								    	</tr>
+								    <?php
+									$no++;
 									?>
-									<tr>
-										
-										<td class="text-nowrap" align="center">
-							    			<a href='#popUpRead-Tamu_<?php echo $row['id_sampah']; ?>' data-toggle='modal' title='Lihat Data' data-target='#popUpRead-Tamu_<?php echo $row['id_sampah']; ?>'>
-												<button class='btn btn-outline-success btn-data-aksi'>
-													<i class='far fa-eye'></i>
-												</button>
-											</a>
-											<a href='#popUpUpdate-Tamu_<?php echo $row['id_sampah']; ?>' data-toggle='modal' title='Edit Data' data-target='#popUpUpdate-Tamu_<?php echo $row['id_sampah']; ?>'>
-												<button class='btn btn-outline-primary btn-data-aksi'>
-													<i class='fas fa-pen'></i>
-												</button>
-											</a>
-											<!-- <a href='#popUpDelete-Tamu_<?php echo $row['id_sampah']; ?>' data-toggle='modal' title='Hapus Data' data-target='#popUpDelete-Tamu_<?php echo $row['id_sampah']; ?>'>
-												<button class='btn btn-outline-danger btn-data-aksi'>
-													<i class='fas fa-times'></i>
-												</button>
-											</a> -->
-										</td>
-										<td><input type="checkbox" name="pilih[]" value="<?php echo $d['id']; ?>"></td>
-										<td><?php echo $row['id_sampah']; ?></td>
-										<td><?php echo $row['nama_sampah']; ?></td>
-										<td><?php echo $row['kategori_sampah']; ?></td>
-							    		<td>Rp. <?php echo $row['harga_datang']; ?></td>
-							    		<td>Rp. <?php echo $row['harga_jemput']; ?></td>
-							    		<td>Rp. <?php echo $row['harga_pengepul']; ?></td>
-							    		
-							    		
-							    	</tr>
-							    <?php
-								$no++;
+							    	<?php include('modal_sampah_delete.php'); include('modal_update_tamu.php'); include('modal_delete_tamu.php'); include('modal_sampah_add.php'); include('modal_sampah_update.php');  ?> 
+							    	<?php
+									}
 								?>
-						    	<?php include('modal_read_tamu.php'); include('modal_update_tamu.php'); include('modal_delete_tamu.php'); include('sampah_add.php')?>
-						    	<?php
-								}
-							?>
-				        </tbody>
-				    </table>
-					<!-- </div> -->
+					        </tbody>
+					    </table>
+						<!-- </div> -->
+					</div>
 				</div>
-			</div>
 
 
 			</div>
@@ -231,6 +202,7 @@ try{
 				    "<'row'<'col-sm-6'l><'col-sm-6'p>>",
 		    	//DISABLE SHORTING TABLE COLUMN
 				"columns": [
+				    null,
 				    null,
 				    null,
 				    null,

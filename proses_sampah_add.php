@@ -14,7 +14,10 @@
 </html>
 <?php 
 include_once("koneksi.php");
-	if(isset($_POST['submit'])) {
+
+// PROSES TAMBAH DATA SAMPAH
+try{
+	if(isset($_POST['submit-sampah-tambah'])) {
 		$id_sampah = $_POST['id_sampah'];
 		$nama_sampah = $_POST['nama_sampah'];
 		$kategori_sampah = $_POST['kategori_sampah'];
@@ -36,12 +39,12 @@ include_once("koneksi.php");
 		$query->execute();
 		echo "<script>
 			setTimeout(function () {
-				window.location.href = 'data_sampah.php';
 				Swal.fire({
-				    
-					title: '<p>Berhasil Menambah Data Sampah</p>',
-					showConfirmButton: true,
-					toast:true,
+					type: 'success',
+					title: 'Sukses menambah data sampah!',
+					toast: true,
+  					showConfirmButton: true,
+  					background:'#91F563'
 				}).then(function() {
 					window.location.href = 'data_sampah.php';
 				})
@@ -58,4 +61,9 @@ include_once("koneksi.php");
 			});
 		</script>";
 	}
+          
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+	
 ?>

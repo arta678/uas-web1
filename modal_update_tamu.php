@@ -1,5 +1,5 @@
 <!-- MODAL UPDATE TAMU -->
-<div class="modal fade" id="popUpUpdate-Tamu_<?php echo $row['id_tamu']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="popUpUpdate-Tamu_<?php echo $row['id_sampah']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
