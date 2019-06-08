@@ -3,7 +3,7 @@
 <head>
 	<title>Halaman Login</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="css/style2.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/login.css">
   <link rel="stylesheet" href="fontawesome/css/all.css">
   <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -28,7 +28,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>SIMBAH (Sistem InforMasi BAnk sampaH)</title>
+	<title>SIBASAH (Sistem InforMasi BAnk sampaH)</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -54,36 +54,38 @@
 	            	</div>
 	        </div>
 	        <ul class="list-unstyled components bg-dark">
-	        	<h5 class="menu-categori">MASTER DATA</h5>
+	        	
 	            <li class="active">
 	            	<a href="home.php" class="icon tipeKamar-li-icon">Home</a>
 	            </li>
+	            <h5 class="menu-categori">MASTER DATA</h5>
 	            <li>
 	            	<a href="data_nasabah.php" class="icon tamu-li-icon">Data Nasabah</a>
 	            </li>
 	            <li>
 	            	<a href="#" class="icon tamu-li-icon">Data Pengepul</a>
 	            </li>
-	            <li>
-	            	<a href="data_sampah.php" class="icon dashboard-li-icon">Data Sampah</a>
+	            <li >
+	            	<a href="#" class="icon dashboard-li-icon">Data Sampah</a>
 	            </li>
 	            <h5 class="menu-categori">TRANSAKSI</h5>
 	            <li>
-	            	<a href="dashboard.php" class="icon dashboard-li-icon">Setoran Sampah</a>
+	            	<a href="data_setoran.php" class="icon dashboard-li-icon">Setoran Sampah</a>
 	            </li>
 	            <li>
-	            	<a href="index_tamu.php" class="icon penarikan-li-icon">Penarikan Saldo</a>
+	            	<a href="data_penarikan.php" class="icon penarikan-li-icon">Penarikan Saldo</a>
 	            </li>
 	            <li>
-	            	<a href="#" class="icon penjualan-li-icon">Penjualan sampah</a>
+	            	<a href="data_penjualan.php" class="icon penjualan-li-icon">Penjualan Saldo</a>
+	            </li>
+	            
+	            <h5 class="menu-categori">REPORT</h5>
+	            <li>
+	            	<a href="#" class="icon laporan-li-icon">Laporan Master Data</a>
 	            </li>
 	            <li>
-	            	<a href="#" class="icon laporan-li-icon">Laporan</a>
+	            	<a href="#" class="icon laporan-li-icon">Laporan Transaksi</a>
 	            </li>
-	           
-	            <!-- <div class="bungkus-bt-logout">
-	            	<button id="bt-logout" class="btn btn-outline-danger bt-logout" title="logout" onclick="btnLogout()">Logout<i class="fas fa-sign-out-alt"></i></button>
-	            </div> -->
 	        </ul>
 	        <!-- <div class="personal-info">
 		        <div class="container info">
@@ -117,7 +119,7 @@
 	        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 	            <div class="container-fluid text-center">
 	                <i id="btn-sidebar-toggle" class="fas fa-bars" title="Show/hide sidebar"></i>
-	                <h5 class="h1-title-header d-md-inline-block "><strong class="text-atas" >SIMBAH</strong>
+	                <h5 class="h1-title-header d-md-inline-block "><strong class="text-atas" >SIBASAH</strong>
 	                	<span>(Sistem Informasi Bank Sampah)</span></h5>
 	                <!-- <button class="btn btn-outline-danger btn-header-logout" title="Logout" onclick="btnLogout()">Logout -->
 	                	<!-- <i class="fas fa-sign-out fa-2x btn-header-logout" title="Logout" onclick="btnLogout()"></i> -->

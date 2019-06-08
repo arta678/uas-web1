@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>SIBASAH (Sistem InforMasi BAnk sampaH)</title>
@@ -37,11 +38,11 @@
 	            <li>
 	            	<a href="#" class="icon tamu-li-icon">Data Pengepul</a>
 	            </li>
-	            <li class="active">
+	            <li >
 	            	<a href="#" class="icon dashboard-li-icon">Data Sampah</a>
 	            </li>
 	            <h5 class="menu-categori">TRANSAKSI</h5>
-	            <li>
+	            <li class="active">
 	            	<a href="data_setoran.php" class="icon dashboard-li-icon">Setoran Sampah</a>
 	            </li>
 	            <li>
@@ -72,38 +73,112 @@
 	            </div>
 	        </nav>
 <!-- CONTEN TABLE -->
-	        	<div class="container table-tamu ">
-					<div class="wrapper-table">
-						<form method="post" action="delete.php" id="form-delete">
-							<div class="bungkus-bt-new  ">
-		        			<button class="btn btn-outline-success bt-input-tamu " data-toggle="modal" data-target="#popUpInsert-sampah"><i class="fas fa-plus"></i>Sampah</button>
-		        
-		        			<button class="btn btn-outline-danger bt-input-tamu btn-hapus " type="button" id="btn-delete"><i class="fas fa-times"></i>Hapus</button>
-		        			
-		        			</div>
-						<div class="table-responsive">
-						<table id="tb-sampah" class="table table-striped nowrap table-hover table-sm  table-bordered "  cellspacing="0" width="100%">
+	<div class="container table-tamu ">
+		<div class="wrapper-table">
+			<form method="post" action="proses_setoran_add.php" id="form-delete">
+				 <?php 
+									include 'koneksi.php';
+									$sql = "select * from setoran_sampah";
+									$no=1;
+									foreach ($koneksi->query($sql) as $row){?>
+							  		
+							  <?php
+									$no++;
+									?> 
+									<?php
+								}
+
+?>
+					<div class="form-group col from-tambah-sampah">
+					
+					    <!-- <div class="row from-tambah-sampah">
+					    	<button type="button" class="btn  btn-modal-lingkaran col-sm-1" data-container="body" data-toggle="popover" data-placement="right" title="Kategori Sampah" data-content="" ><i class="fas fa-calendar-alt"></i></button>
+						    <input type="date" name="tanggal" required >
+					    </div> -->
+					    <div class="row from-tambah-sampah">
+					    	<button type="button" class="btn  btn-modal-lingkaran col-sm-1" data-container="body" data-toggle="popover" data-placement="right" title="Nama Nasabah" data-content="" ><i class="fas fa-user"></i></i></button>
+						    <select class="custom-select col-sm-6 col text-bold" name="id_nasabah" required  >
+							  <option >Pilih Nasabah</option> 
+							  <?php 
+									include 'koneksi.php';
+									$sql = "select * from nasabah";
+									foreach ($koneksi->query($sql) as $row){?>
+							  <option value="<?php echo $row['id_nasabah']; ?>">[<?php echo $row['id_nasabah']; ?>] <?php echo $row['nama_nasabah']; ?></option>
+							  
+									<?php
+
+								}
+
+								 ?>
+							</select>
+							<a href="data_nasabah.php"><button class="btn-success btn input_setoran" title="Tambah Data Nasabah"><i class="fas fa-plus"></i>Nasabah</button></a>					    
+						</div>
+					    <div class="row from-tambah-sampah">
+					    	<button type="button" class="btn  btn-modal-lingkaran col-sm-1" data-container="body" data-toggle="popover" data-placement="right" title="Kategori Sampah" data-content="" ><i class="fas fa-trash-alt"></i></i></button>
+						    <select class="custom-select col-sm-3 col text-bold" name="id_sampah" required  >
+							  <option >Pilih  Jenis Sampah</option> 
+							  <?php 
+									include 'koneksi.php';
+									$sql = "select * from sampah";
+									foreach ($koneksi->query($sql) as $row){?>
+							  <option value="<?php echo $row['id_sampah']; ?>"><?php echo $row['nama_sampah']; ?></option>
+							 
+									<?php
+								}
+
+								 ?>
+							</select>
+
+					        <input name="berat_setoran" type="number" class="form-control text-bold col-sm-2 input_setoran" id="input_telp_tamu" title="Berat Sampah" placeholder="Berat Sampah" required step=0.01>
+					        <a href=""><button class="btn-success btn input_setoran " style="margin-left: 40px;" title="Tambah setoran"><i class="fas fa-plus"></i></button></a>	
+					    </div>
+					   
+
+					      	
+					</div>
+				
+					<div class="modal-footer">
+						<!-- <button type="button" name="submit-sampah-update" class="btn btn-success" >Ubah Data</button> -->
+						<button type="submit"  class="btn btn-success" name="submit" >Simpan</button>
+						
+					</div>
+			</form>	
+			<div class="text-center"><h4>SETORAN SAMPAH</h4></div>
+			<div class="table-responsive">
+						<table id="tb-setoran_sampah" class="table table-striped nowrap table-hover table-sm  table-bordered "  cellspacing="0" width="100%">
 					        <thead class="thead-dark text-center">
 					            <tr>
-					                <th class="header-table" width="60px;" rowspan="2"></th>
-					                <th class="header-table "  rowspan="2"><input type="checkbox" id="check-all"></th>
+					                <th class="header-table" width="60px;" rowspan="2">View</th>
+					                <th class="header-table "  >Tanggal</th>
 
-					                <th class="header-table" width="50px;" rowspan="2">Kode</th>
+					                <th class="header-table"  >Nasabah</th>
 					                <th class="header-table" >Jenis Sampah</th>
-					                <th class="header-table" >Kategori</th>
-					                <th class="header-table" >Harga Beli</th>
-					                <th class="header-table" >Harga Jual</th>
+					                <th class="header-table" >Harga/Kg</th>
+					                <th class="header-table " >Berat</th>
+					                <th class="header-table " >Totap Rp.</th>
+					                <th class="header-table " >Keterangan</th>
+
 					                <!-- <th class="header-table" width="100px;">DHS 2</th>
 					                <th class="header-table" width="100px;">PENGEPUL</th> -->
 					                <!-- <th class="header-table" width="100px;"><center>Aksi</center></th> -->
 					            </tr>
-					        
+					            
+
 					        </thead>
 					        <tbody>
 					            <?php
 						            // include_once("koneksi.php");
 						            require 'koneksi.php'; 
-									$sql = "SELECT * FROM sampah ORDER BY id_sampah ASC";
+									$sql = "
+											SELECT setoran_sampah.*, nasabah.*, sampah.* 
+											FROM setoran_sampah
+											INNER JOIN nasabah
+											on setoran_sampah.id_nasabah = nasabah.id_nasabah
+											INNER JOIN sampah
+											ON setoran_sampah.id_sampah = sampah.id_sampah 
+											ORDER BY id_setoran DESC
+
+									";
 									$no=1;
 
 									foreach ($koneksi->query($sql) as $row) {
@@ -118,24 +193,24 @@
 													</button>
 												</a>
 
-												<a href='#update_sampah_<?php echo $row['id_sampah']; ?>' data-toggle='modal' title='Edit Data' data-target='#update_sampah_<?php echo $row['id_sampah']; ?>'>
+												<!-- <a href='#update_sampah_<?php echo $row['id_sampah']; ?>' data-toggle='modal' title='Edit Data' data-target='#update_sampah_<?php echo $row['id_sampah']; ?>'>
 													<button class='btn  btn-data-aksi'>
 														<i class='fas fa-pen'></i>
 													</button>
-												</a>
+												</a> -->
 												<!-- <a href='#popUpDelete-Tamu_<?php echo $row['id_sampah']; ?>' data-toggle='modal' title='Hapus Data' data-target='#popUpDelete-Tamu_<?php echo $row['id_sampah']; ?>'>
 													<button class='btn btn-outline-danger btn-data-aksi'>
 														<i class='fas fa-times'></i>
 													</button>
 												</a> -->
 											</td>
-											<td align="center"><input type="checkbox" class="check-item" name="id_sampah[]" value="<?php echo $row['id_sampah']; ?>" ></td>
-											<td><?php echo $row['id_sampah']; ?></td>
+											<td align="center"><?php echo $row['tanggal']; ?></td>
+											<td><?php echo $row['nama_nasabah']; ?></td>
 											<td><?php echo $row['nama_sampah']; ?></td>
-											<td><?php echo $row['kategori_sampah']; ?></td>
-								    		<td>Rp. <?php echo $row['harga_datang']; ?></td>
-								    		<td>Rp. <?php echo $row['harga_pengepul']; ?></td>
-								    		<!-- <td>Rp. <?php echo $row['harga_pengepul']; ?></td> -->
+											<td>Rp. <?php echo $row['harga_datang']; ?></td>
+								    		<td align="right"><?php echo $row['berat_setoran']; ?> Kg</td>
+								    		<td>Rp. <?php echo $row['total_setoran']; ?></td>
+								    		<td align="center" width="140px;"><?php echo $row['Keterangan']; ?></td>
 								    		
 								    		
 								    	</tr>
@@ -156,18 +231,13 @@
 					        </tbody>
 					    </table>
 						</div>
-					</div>
-					<!-- </form> -->
-				</div>
 
+		</div>
 
-			</div>
-	    </div>
-	<?php 
-		// include 'modal_nasabah_add.php'; 
-		// include 'datele.php'; 
-		include 'modal_sampah_view.php'; 
-	?>
+</div>
+	</div>
+	</div>
+
 	<script type="text/javascript" src="js/JQuery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/Popper.js"></script>
 	<script type="text/javascript" src="sweetalert2/js/sweetalert2.js"></script>
@@ -182,22 +252,6 @@
 
 
 	<script type="text/javascript">
-		 //   	$(document).ready(function(){ 					// Ketika halaman sudah siap (sudah selesai di load)    
-		 //   		$("#check-all").click(function(){ 			// Ketika user men-cek checkbox all      
-		 //   			if($(this).is(":checked")) 				// Jika checkbox all diceklis        
-		 //   				$(".check-item").prop("checked", true); 	// ceklis semua checkbox siswa dengan class "check-item"      
-		 //   			else 											// Jika checkbox all tidak diceklis        
-		 //   				$(".check-item").prop("checked", false); 	// un-ceklis semua checkbox siswa dengan class "check-item"    
-		 //   		});        
-		 //   	$("#btn-delete").click(function(){ 				// Ketika user mengklik tombol delete      
-		 //   		var confirm = window.confirm("Apakah Anda yakin ingin menghapus data-data ini?"); // Buat sebuah alert konfirmasi            
-		 //   	if(confirm) 									// Jika user mengklik tombol "Ok"       
-		 //    	$("#form-delete").submit(); 					// Submit form    
-			// 	});  
-			// });
-
-
-
 			$(document).ready(function(){ 					// Ketika halaman sudah siap (sudah selesai di load)    
 		   		$("#check-all").click(function(){ 			// Ketika user men-cek checkbox all      
 		   			if($(this).is(":checked")) 				// Jika checkbox all diceklis        
@@ -222,8 +276,11 @@
 				});  
 			});
 
+
+		   
+
 		$(document).ready(function() {
-		    $('#tb-sampah').dataTable( {
+		    $('#tb-setoran_sampah').dataTable( {
 		    	//i = info, 
 		    	// l = lenght, 
 		    	// f = find, 
@@ -242,7 +299,9 @@
 				    null,
 				    null,
 				    null,
-
+				    null,
+				    null,
+				    
 				   
 				    { "orderable": false }
 				]

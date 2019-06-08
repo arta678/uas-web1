@@ -14,34 +14,36 @@
 </html>
 <?php 
 include_once("koneksi.php");
-	$id = $_GET['id_sampah'];
-	$sql = "DELETE FROM sampah WHERE id_sampah = '$id'";
-	$koneksi->exec($sql);
-	echo "<script>
+
+	try {
+		if(isset($_POST['submit-nasabah-update'])) {
+		$id_nasabah = $_GET['id_nasabah'];
+		$nama_nasabah = $_POST['nama_nasabah'];
+		$jenis_kelamin = $_POST['jenis_kelamin'];
+		$hp_nasabah = $_POST['hp_nasabah'];
+		$alamat_nasabah = $_POST['alamat_nasabah'];
+		//update data to database	
+		$sql = "UPDATE nasabah SET nama_nasabah = '$nama_nasabah', jenis_kelamin = '$jenis_kelamin', hp_nasabah = '$hp_nasabah', alamat_nasabah = '$alamat_nasabah' WHERE id_nasabah = '$id_nasabah'";
+		$koneksi->exec($sql);
+		echo "<script>
 			setTimeout(function () {
 				Swal.fire({
 					type: 'success',
-					title: 'Hapus Sampah Sukses!',
+					title: 'Sukses Mengubah Data Nasabah!',
 					toast: true,
   					showConfirmButton: true,
   					background:'#91F563'
 				}).then(function() {
-					window.location.href = 'data_sampah.php';
+					window.location.href = 'data_nasabah.php';
 				})
 			});
 		</script>";
+	}
+		
+	} catch (Exception $e) {
+		 echo $e->getMessage();
+		
+	}
+
+	
 ?>
-
-<?php 
-// include 'koneksi.php';
-
-// 		$edittable=$_POST['selector'];
-// 		$N = count($edittable);
-// 		for($i=0; $i < $N; $i++)
-// 		{
-// 			$result = $db->prepare("DELETE FROM sampah WHERE id= :memid");
-// 			$result->bindParam(':memid', $edittable[$i]);
-// 			$result->execute();
-// 		}
-// 		header("location: data_sampah.php");
- ?>

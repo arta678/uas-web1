@@ -25,6 +25,235 @@ a, a:hover, a:focus {
 /*             LOGIN FORM              */
 /*-------------------------------------*/
 
+.input_setoran{
+    margin-left: 10px;
+}
+.form-signin
+{
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-signin-heading, .form-signin .checkbox
+{
+    margin-bottom: 10px;
+}
+.form-signin .checkbox
+{
+    font-weight: normal;
+}
+.form-signin .form-control
+{
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.form-signin .form-control:focus
+{
+    z-index: 2;
+}
+.form-signin input[type="text"]
+{
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"]
+{
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.account-wall
+{
+    margin-top: 20px;
+    padding: 40px 0px 20px 0px;
+    background-color: #f7f7f7;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.login-title
+{
+    color: #555;
+    font-size: 18px;
+    font-weight: 400;
+    display: block;
+}
+.profile-img
+{
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.need-help
+{
+    margin-top: 10px;
+}
+.new-account
+{
+    display: block;
+    margin-top: 10px;
+}
+
+/*.kotak-login{
+    background-color: #FFFFFF;
+}
+*/
+/*@font-face {
+    font-family: "Raleway-Black";
+    src: url("fonts/raleway/Raleway-Black.ttf") format('truetype');
+}
+*/
+/*html, body {
+    height: 100%;
+    width: 100%;
+}*/
+/*
+#username{
+    font-size: 20px;
+}
+#password{
+    font-size: 20px;
+}
+.login-button{
+    text-align: right;
+}*/
+
+/*.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}*/
+
+/*.btn-login-hijau{
+    width: 150px;
+    font-weight: 800;
+}
+.login-page,
+.register-page {
+  width: 100%;
+  background: #ECFF23;
+  min-height: auto;
+  padding-bottom: 0;
+}
+
+.login-page .form-outer,
+.register-page .form-outer {
+  min-height: 100vh;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px 0;
+  position: relative;
+}
+
+.login-page .copyrights,
+.register-page .copyrights {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.login-page .copyrights p,
+.register-page .copyrights p {
+  font-size: 0.6em;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.login-page .form-inner,
+.register-page .form-inner {
+  padding: 40px 30px;
+  background: #FFFFFF;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.login-page .logo,
+.register-page .logo {
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.login-page .logo span,
+.register-page .logo span {
+  color: #ccc;
+}
+
+.login-page p,
+.register-page p {
+  font-size: 0.8em;
+  font-weight: 300;
+  color: #aaa;
+  margin-bottom: 0;
+}
+
+.login-page form,
+.register-page form {
+  margin: 2rem auto 1rem;
+  max-width: 300px;
+}
+
+.login-page a.forgot-pass,
+.login-page a.signup,
+.register-page a.forgot-pass,
+.register-page a.signup {
+  font-size: 0.65em;
+  color: #66b0ff;
+}
+
+.login-page a.forgot-pass:hover, .login-page a.forgot-pass:focus,
+.login-page a.signup:hover,
+.login-page a.signup:focus,
+.register-page a.forgot-pass:hover,
+.register-page a.forgot-pass:focus,
+.register-page a.signup:hover,
+.register-page a.signup:focus {
+  color: #66b0ff;
+  text-decoration: none;
+}
+
+.login-page a.forgot-pass,
+.register-page a.forgot-pass {
+  display: block;
+}
+
+.login-page a.create-account,
+.register-page a.create-account {
+  border-radius: 50px;
+  font-size: 0.75em;
+  margin-top: 10px;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.login-page .terms-conditions,
+.register-page .terms-conditions {
+  margin-top: 20px;
+}
+
+.login-page small,
+.register-page small {
+  font-size: 0.65em;
+  color: #aaa;
+  line-height: 0.9em;
+}
+
+*/
+
+/*============*/
 input.text-bold{
     font-style: bold;
     /*font-size: px;*/
@@ -101,6 +330,17 @@ input.text-bold{
     font-size: 25px;
     font-weight: bold;
 }
+.warna-data-merah{
+    background-color: red;
+    width: 50%;
+    height: 200px;
+}
+.warna-data-kuning{
+    background-color: yellow;
+    width: 50%;
+
+    height: 200px;
+}
 
 @media (max-width: 1174px) {
     .wrapper-img-login {
@@ -141,8 +381,8 @@ input.text-bold{
 /*             FOTO ADMIN              */
 /*-------------------------------------*/
 .gambar-admin{
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
 }
 
 /*-------------------------------------*/
@@ -293,6 +533,12 @@ input.text-bold{
         font-size: 70px;
         font-weight: 200;
         /*text-align: left;*/
+    }
+
+    .btn-hapus{
+        position: absolute;
+        right: 20px;
+        top: 95px;
     }
 
 }
@@ -681,7 +927,7 @@ h5.h1-title-header span{
 }
 
 .bungkus-bt-new {
-	margin-bottom: 10px;
+	/*margin-bottom: 10px;*/
 }
 
 .notice {
@@ -717,6 +963,8 @@ h5.h1-title-header span{
 /* INDIVUAL STYLE CONTENT TABLE - TAMU*/
 .bt-input-tamu {
 	font-weight: bold;
+    margin-right: 15px;
+    margin-bottom: 10px;
 
 
 }

@@ -18,24 +18,24 @@ include_once("koneksi.php");
 // PROSES TAMBAH DATA SAMPAH
 try{
 	if(isset($_POST['submit-sampah-tambah'])) {
-		$id_sampah = $_POST['id_sampah'];
-		$nama_sampah = $_POST['nama_sampah'];
-		$kategori_sampah = $_POST['kategori_sampah'];
-		$harga_datang = $_POST['harga_datang'];
-		$harga_jemput = $_POST['harga_jemput'];
-		$harga_pengepul = $_POST['harga_pengepul'];
-		$keterangan_sampah = $_POST['keterangan_sampah'];
+		
+		$nama_sampah = htmlspecialchars($_POST['nama_sampah']);
+		$kategori_sampah = htmlspecialchars($_POST['kategori_sampah']);
+		$harga_datang = htmlspecialchars($_POST['harga_datang']);
+		$harga_jemput = htmlspecialchars($_POST['harga_jemput']);
+		$harga_pengepul = htmlspecialchars($_POST['harga_pengepul']);
+		$keterangan_sampah = htmlspecialchars($_POST['keterangan_sampah']);
+		$stok_sampah = "0";
 		//insert data to database
-		$sql = "INSERT INTO sampah VALUES (:id_sampah, :nama_sampah, :kategori_sampah, :harga_datang, :harga_jemput, :harga_pengepul,:keterangan_sampah)";
+		$sql = "INSERT INTO sampah (id_sampah,nama_sampah,kategori_sampah,harga_datang,harga_pengepul,keterangan_sampah,stok_sampah) VALUES (:id_sampah, :nama_sampah, :kategori_sampah, :harga_datang, :harga_pengepul,:keterangan_sampah,:stok_sampah)";
 		$query = $koneksi->prepare($sql);
 		$query->bindparam(':id_sampah', $id_sampah);
 		$query->bindparam(':nama_sampah', $nama_sampah);
 		$query->bindparam(':kategori_sampah', $kategori_sampah);
 		$query->bindparam(':harga_datang', $harga_datang);
-		$query->bindparam(':harga_jemput', $harga_jemput);
 		$query->bindparam(':harga_pengepul', $harga_pengepul);
 		$query->bindparam(':keterangan_sampah', $keterangan_sampah);
-		
+		$query->bindparam(':stok_sampah', $stok_sampah);
 		$query->execute();
 		echo "<script>
 			setTimeout(function () {
@@ -65,5 +65,20 @@ try{
         }catch(PDOException $e){
             echo $e->getMessage();
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 	
 ?>

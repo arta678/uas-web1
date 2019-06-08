@@ -1,208 +1,246 @@
-<?php
-	include_once ('koneksi.php');
-	$nasabah = $koneksi->prepare('SELECT * FROM nasabah');
-	$nasabah->execute();
-	$jumlahnasabah = $nasabah->rowCount();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>SIMBAH (Sistem InforMasi BAnk sampaH)</title>
+	<title>SIBASAH (Sistem InforMasi BAnk sampaH)</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" href="fontawesome/css/all.css">
 	<link rel="stylesheet" type="text/css" href="sweetalert2/css/sweetalert2.css">
 	<link rel="stylesheet" type="text/css" href="DataTables/DataTables-1.10.18/css/dataTables.bootstrap4.css">
-	<link rel="stylesheet" type="text/css" href="DataTables/DataTables-1.10.18/css/buttons.bootstrap4.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="animations-css/animations.css">	
 </head>
 <body>
 	<div class="bungkus-terluar bg-dark">
-	    <!-- Sidebar -->
+<!-- SIDEBAR -->
 	    <nav id="sidebar" class="bg-dark">
 	    	<div class="overlay index-img-screen bg-dark"></div>
 	    	
 	        <div class="sidebar-header text-center bg-dark">
-	        	<a href=""><img src="images/arta.jpg" alt="gambar arta wiguna" class="img-fluid gambar-admin"></a>
+	        	<a href="" ><img src="images/arta.jpg" alt="gambar arta wiguna" class="img-fluid gambar-admin"></a>
 	        		
 	            <h5 class="title-tamu">ADMIN</h5>
 	            	<div class="dismiss">
 	            		<i class="fas fa-times fa-lg" title="Tutup"></i>
 	            	</div>
 	        </div>
-	        <ul class="list-unstyled components bg-dark">
-	        	<h5 class="menu-categori">MASTER DATA</h5>
+	       <ul class="list-unstyled components bg-dark">
+	        	
 	            <li >
 	            	<a href="home.php" class="icon tipeKamar-li-icon">Home</a>
 	            </li>
+	            <h5 class="menu-categori">MASTER DATA</h5>
 	            <li class="active">
 	            	<a href="data_nasabah.php" class="icon tamu-li-icon">Data Nasabah</a>
 	            </li>
 	            <li>
 	            	<a href="#" class="icon tamu-li-icon">Data Pengepul</a>
 	            </li>
-	            <li>
+	            <li >
 	            	<a href="data_sampah.php" class="icon dashboard-li-icon">Data Sampah</a>
 	            </li>
 	            <h5 class="menu-categori">TRANSAKSI</h5>
 	            <li>
-	            	<a href="dashboard.php" class="icon dashboard-li-icon">Setoran Sampah</a>
+	            	<a href="data_setoran.php" class="icon dashboard-li-icon">Setoran Sampah</a>
 	            </li>
 	            <li>
-	            	<a href="index_tamu.php" class="icon penarikan-li-icon">Penarikan Saldo</a>
+	            	<a href="data_penarikan.php" class="icon penarikan-li-icon">Penarikan Saldo</a>
 	            </li>
 	            <li>
-	            	<a href="#" class="icon penjualan-li-icon">Penjualan sampah</a>
+	            	<a href="data_penjualan.php" class="icon penjualan-li-icon">Penjualan Saldo</a>
+	            </li>
+	            
+	            <h5 class="menu-categori">REPORT</h5>
+	            <li>
+	            	<a href="#" class="icon laporan-li-icon">Laporan Master Data</a>
 	            </li>
 	            <li>
-	            	<a href="#" class="icon laporan-li-icon">Laporan</a>
+	            	<a href="#" class="icon laporan-li-icon">Laporan Transaksi</a>
 	            </li>
-	           
-	            <!-- <div class="bungkus-bt-logout">
-	            	<button id="bt-logout" class="btn btn-outline-danger bt-logout" title="logout" onclick="btnLogout()">Logout<i class="fas fa-sign-out-alt"></i></button>
-	            </div> -->
 	        </ul>
-	        <!-- <div class="personal-info">
-		        <div class="container info">
-		        	<div class="row text-center col-xl-12 content-personal-info">
-		        		<div class="col" data-toggle="tooltip" data-placement="top" title="Gus Rosi Adi">
-		        			<a href="https://www.facebook.com" target="_blank">
-		        				<i class="fab fa-facebook-f"></i>
-		        			</a>
-		        		</div>
-		        		<div class="col" data-toggle="tooltip" data-placement="top" title="gusrosi_">
-		        			<a href="https://www.instagram.com" target="_blank">
-		        				<i class="fab fa-instagram"></i>
-		        			</a>
-		        		</div>
-		        		<div class="col" data-toggle="tooltip" data-placement="top" title="081236573724">
-		        			<a href="https://web.whatsapp.com/" target="_blank">
-		        				<i class="fab fa-whatsapp"></i>
-		        			</a>
-		        		</div>
-		        		<div class="col" data-toggle="tooltip" data-placement="top" title="rosiadi97">
-		        			<a href="#">
-		        				<i class="fab fa-line"></i>
-		        			</a>
-		        		</div>
-		        	</div>
-		        </div>
-	        </div> -->
 	    </nav>
-	    <!-- HEADER PAGE CONTENT -->
+
+<!-- NAVBAR SIMBAH -->
 	    <div id="content">
 	        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 	            <div class="container-fluid text-center">
 	                <i id="btn-sidebar-toggle" class="fas fa-bars" title="Show/hide sidebar"></i>
-	                <h5 class="h1-title-header d-md-inline-block "><strong class="text-atas" >SIMBAH</strong>
+	                <h5 class="h1-title-header d-md-inline-block "><strong class="text-atas" >SIBASAH</strong>
 	                	<span>(Sistem Informasi Bank Sampah)</span></h5>
-	                <!-- <button class="btn btn-outline-danger btn-header-logout" title="Logout" onclick="btnLogout()">Logout -->
-	                	<!-- <i class="fas fa-sign-out fa-2x btn-header-logout" title="Logout" onclick="btnLogout()"></i> -->
 	                	<i class="fas fa-sign-out-alt fa-2x btn-header-logout" title="Logout" onclick="btnLogout()"></i>
-	                <!-- </button> -->
-
 	            </div>
 	        </nav>
-	        <!-- CONTENT -->
-	        <div class="container index-dashboard">
-	        	<!-- Here..... -->
-	        	<div class="row">
-	        		<div class="col-sm-12 title-dashboard-content text-center">
-	        			<p>Master Data & Transaksi</p>
-	        			<hr>
-	        		</div>
-	        		<div class="col-sm-3">
-	        			<div class="dashboard-content ">
-	        				<a href="dashboard.php" title="Lihat Nasabah">
-	        				<p class="title-content">BANYAK NASABAH (Org) </p>
-	        				<p class="keterangan"><?php echo "$jumlahnasabah"; ?></p>
-	        				<div class="icon icon-content"><i class="fas fa-users"></i></div>
-	        				</a>
-	        				<!-- <a href="index_tamu.php" class="content-dashboard-footer foo-1">
-	        					<p>Lainnya</p>
-	        				</a> -->
-	        			</div>
-	        		</div>
-	        		<div class="col-sm-3">
-	        			<div class="dashboard-content">
-	        				<a href="dashboard.php" title="Lihat Sampah">
-	        				<p class="title-content">BERAT TOTAL SAMPAH (Kg)</p>
-	        				<p class="keterangan"><?php echo "$jumlahnasabah"; ?></p>
-	        				<div class="icon icon-content"><i class="fas fa-trash-alt"></i></div>
-	        				</a>
-	        				
-	        				<!-- <a href="#" class="content-dashboard-footer foo-2">
-	        					<p>Lainnya</p>
-	        				</a> -->
-	        			</div>
-	        		</div>
-	        		<div class="col-sm-3">
-	        			<div class="dashboard-content">
-	        				<a href="dashboard.php" title="Lihat Setoran Hari Ini">
-	        				<p class="title-content">SETORAN HARI INI (Kg) </p>
-	        				<p class="keterangan"><?php echo "$jumlahnasabah"; ?></p>
-	        				<div class="icon icon-content"><i class="fas fa-shopping-cart"></i></div>
-	        				</a>
-	        				<!-- <a href="#" class="content-dashboard-footer foo-3">
-	        					<p>Lainnya</p>
-	        				</a> -->
-	        			</div>
-	        		</div>
-	        		<div class="col-sm-3">
-	        			<div class="dashboard-content">
-	        				<a href="dashboard.php" title="Lihat Setoran Hari Ini">
-	        				<p class="title-content">BANYAK TRANSAKSI</p>
-	        				<p class="keterangan"><?php echo "$jumlahnasabah"; ?></p>
-	        				<div class="icon icon-content"><i class="fas fa-shopping-cart"></i></div>
-	        				</a>
-	        				<!-- <a href="#" class="content-dashboard-footer foo-4">
-	        					<p>Lainnya</p>
-	        				</a> -->
-	        			</div>
-	        		</div>
-	        	</div>
+<!-- CONTEN TABLE -->
+	        	<div class="container table-tamu ">
+					<div class="wrapper-table">
+						<form method="post" action="proses_nasabah_delete.php" id="form-delete">
+							<div class="bungkus-bt-new  ">
+		        			<button class="btn btn-outline-success bt-input-tamu " data-toggle="modal" data-target="#tambah_nasabah"><i class="fas fa-plus"></i>Nasabah</button>
+		        
+		        			<button class="btn btn-outline-danger bt-input-tamu btn-hapus" type="button" id="btn-delete"><i class="fas fa-times"></i>Hapus</button>
+		        			
+		        			</div>
+						<div class="table-responsive">
+						<table id="tb-nasabah" class="table table-striped nowrap table-hover table-sm  table-bordered "  cellspacing="0" width="100%">
+					        <thead class="thead-dark text-center">
+					            <tr>
+					                <th class="header-table" width="60px;"></th>
+					                <th class="header-table"  ><input type="checkbox" id="check-all"></th>
+					                <th class="header-table" width="20px;" >ID Nas</th>
+					                <th class="header-table" >Nama Nasabah</th>
+					                <th class="header-table" >Jenis Kelamin</th>
+					                <th class="header-table" >Nomor HP</th>
+					                <th class="header-table" >Alamat Nasabah</th>
+					            </tr>
+					        </thead>
+					        <tbody>
+					            <?php
+						            include_once("koneksi.php");
+									$sql = "SELECT * FROM nasabah";
+									$no=1;
+
+									foreach ($koneksi->query($sql) as $row) {
+										?>
+										<tr>
+											
+											<td class="text-nowrap" align="center">
+
+								    			<a href='#view_nasabah_<?php echo $row['id_nasabah']; ?>' data-toggle='modal' title='Lihat Data' data-target='#view_nasabah_<?php echo $row['id_nasabah']; ?>'>
+													<button class='btn  btn-data-aksi'>
+														<i class='far fa-eye'></i>
+													</button>
+												</a>
+
+												<a href='#Update_nasabah_<?php echo $row['id_nasabah']; ?>' data-toggle='modal' title='Edit Data' data-target="#Update_nasabah_<?php echo $row['id_nasabah']; ?>">
+													<button class='btn  btn-data-aksi'>
+														<i class='fas fa-pen'></i>
+													</button>
+												</a>
+												<!-- <a href='#popUpDelete-Tamu_<?php echo $row['id_sampah']; ?>' data-toggle='modal' title='Hapus Data' data-target='#popUpDelete-Tamu_<?php echo $row['id_sampah']; ?>'>
+													<button class='btn btn-outline-danger btn-data-aksi'>
+														<i class='fas fa-times'></i>
+													</button>
+												</a> -->
+											</td>
+											<td align="center"><input type="checkbox" class="check-item" name="id_nasabah[]" value="<?php echo $row['id_nasabah']; ?>" ></td>
+											<td><?php echo $row['id_nasabah']; ?></td>
+											<td><?php echo $row['nama_nasabah']; ?></td>
+											<td><?php echo $row['jenis_kelamin']; ?></td>
+								    		<td><?php echo $row['hp_nasabah']; ?></td>
+								    		<td><?php echo $row['alamat_nasabah']; ?></td>
+								    	</tr>
+
+								    <?php
+									$no++;
+									?> 
+									<?php 
+										include('modal_sampah_delete.php');
+										 include('modal_update_tamu.php'); 
+										 include('modal_delete_tamu.php'); 
+										 include('modal_sampah_add.php'); 
+										 // include('modal_sampah_update.php'); 
+										 include 'modal_nasabah_update.php';
+										 include 'modal_nasabah_view.php';
+
+							    		
+								   
+								 
+									 ?> 
+							    	
+							    	
+							    	<?php
+									}
+								?>
+					        </tbody>
+					    </table>
+						</div>
+					</div>
+					</form>
+				</div>
 
 
-
-
-	        	<div class="row">
-	        		<div class="col-sm-12 title-dashboard-content text-center">
-	        			<p>Laporan</p>
-	        			<hr>
-	        		</div>
-	        		<div class="col-sm-3">
-	        			<div class="dashboard-content"></div>
-	        		</div>
-	        		<div class="col-sm-3">
-	        			<div class="dashboard-content"></div>
-	        		</div>
-	        		<div class="col-sm-3">
-	        			<div class="dashboard-content"></div>
-	        		</div>
-	        		<div class="col-sm-3">
-	        			<div class="dashboard-content"></div>
-	        		</div>
-	        	</div>
 			</div>
-			<!-- <div class="footer">
-				<i class="far fa-copyright"></i><span class="y">&nbsp;2019</span><span>Agus Rosi Adi Purwibawa</span>
-			</div> -->
 	    </div>
-	</div>
-	<!-- JS LIBRARY GLOBAL -->
+
+	<?php 
+	include 'modal_nasabah_add.php'; 
+	include 'modal_nasabah_view.php';
+	
+	?>
 	<script type="text/javascript" src="js/JQuery-3.3.1.min.js"></script>
-	<!-- JS LIBRARY HOVER POPPER -->
 	<script type="text/javascript" src="js/Popper.js"></script>
-	<!-- JS LIBRARY SWEETALERT -->
 	<script type="text/javascript" src="sweetalert2/js/sweetalert2.js"></script>
-	<!-- JS LIBRARY FONT AWESOME 5 -->
 	<script type="text/javascript" src="fontawesome/js/all.js"></script>
-	<!-- JS LIBRARY BOOTSTRAP 4 -->
 	<script type="text/javascript" src="js/bootstrap.js"></script>
-	<!-- SCRIPT DASHBOARD -->
+	<script type="text/javascript" src="js/Popper.js"></script>
+	<!-- <script type="text/javascript" src="../DataTables/DataTables-1.10.18/js/dataTables.bootstrap4.js"></script> -->
+	<script type="text/javascript" src="DataTables/DataTables-1.10.18/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="DataTables/DataTables-1.10.18/js/dataTables.bootstrap4.js"></script>
+	
+
+
+
 	<script type="text/javascript">
+			$(document).ready(function(){ 					// Ketika halaman sudah siap (sudah selesai di load)    
+		   		$("#check-all").click(function(){ 			// Ketika user men-cek checkbox all      
+		   			if($(this).is(":checked")) 				// Jika checkbox all diceklis        
+		   				$(".check-item").prop("checked", true); 	// ceklis semua checkbox siswa dengan class "check-item"      
+		   			else 											// Jika checkbox all tidak diceklis        
+		   				$(".check-item").prop("checked", false); 	// un-ceklis semua checkbox siswa dengan class "check-item"    
+		   		});        
+		   	$("#btn-delete").click(function(){ 				   
+		   				Swal.fire({
+							confirmButtonColor: "#d33",
+							cancelButtonColor: "#aaa",
+							showCancelButton: true,
+							title: 'Hapus data yang dicentang?',
+		  					showConfirmButton: true,
+							confirmButtonText: "Ya",
+							cancelButtonText:"Tidak"
+			}).then((result) => {
+				if (result.value) {
+				    $("#form-delete").submit();
+				}
+			})		
+				});  
+			});
+
+
+		   
+
+		$(document).ready(function() {
+		    $('#tb-nasabah').dataTable( {
+		    	//i = info, 
+		    	// l = lenght, 
+		    	// f = find, 
+		    	// t = table, 
+		    	// B = buttons, 
+		    	// p = pagination
+		    	dom:
+				    "<'row'<'col-sm-12'f>>" +
+				    "<'row'<'col-sm-12't>>" +
+				    "<'row'<'col-sm-6'l><'col-sm-6'p>>",
+		    	//DISABLE SHORTING TABLE COLUMN
+				"columns": [
+				    null,
+				    null,
+				    null,
+				    null,
+				    null,
+				    null,
+				    
+				   
+				    { "orderable": false }
+				]
+			
+			} )
+		});
+
+		$(document).ready(function(){
+		    $('[data-toggle="popover"]').popover();   
+		});
+		
 		$(document).ready(function () {
 		    $('#btn-sidebar-toggle').on('click', function () {
                 $('#sidebar, #content').toggleClass('active');
