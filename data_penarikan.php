@@ -26,38 +26,37 @@
 	            		<i class="fas fa-times fa-lg" title="Tutup"></i>
 	            	</div>
 	        </div>
-	        <ul class="list-unstyled components bg-dark">
+	      <ul class="list-unstyled components bg-dark">
 	        	
 	            <li >
 	            	<a href="home.php" class="icon tipeKamar-li-icon">Home</a>
 	            </li>
 	            <h5 class="menu-categori">MASTER DATA</h5>
-	            <li>
+	            <li  >
 	            	<a href="data_nasabah.php" class="icon tamu-li-icon">Data Nasabah</a>
 	            </li>
+	             <li >
+	            	<a href="data_sampah.php" class="icon dashboard-li-icon">Data Sampah</a>
+	            </li>
 	            <li>
-	            	<a href="#" class="icon tamu-li-icon">Data Pengepul</a>
+	            	<a href="data_pengepul.php" class="icon tamu-li-icon">Data Pengepul</a>
 	            </li>
-	            <li >
-	            	<a href="#" class="icon dashboard-li-icon">Data Sampah</a>
-	            </li>
+	           
 	            <h5 class="menu-categori">TRANSAKSI</h5>
-	            <li>
+	            <li >
 	            	<a href="data_setoran.php" class="icon dashboard-li-icon">Setoran Sampah</a>
 	            </li>
 	            <li class="active">
 	            	<a href="data_penarikan.php" class="icon penarikan-li-icon">Penarikan Saldo</a>
 	            </li>
-	            <li>
-	            	<a href="data_penjualan.php" class="icon penjualan-li-icon">Penjualan Saldo</a>
-	            </li>
+	          
 	            
 	            <h5 class="menu-categori">REPORT</h5>
 	            <li>
-	            	<a href="#" class="icon laporan-li-icon">Laporan Master Data</a>
+	            	<a href="report_master.php" class="icon laporan-li-icon">Laporan Master Data</a>
 	            </li>
 	            <li>
-	            	<a href="#" class="icon laporan-li-icon">Laporan Transaksi</a>
+	            	<a href="report_transaksi.php" class="icon laporan-li-icon">Laporan Transaksi</a>
 	            </li>
 	        </ul>
 	    </nav>
@@ -97,8 +96,8 @@
 					    </div> -->
 					    <div class="row from-tambah-sampah">
 					    	<button type="button" class="btn  btn-modal-lingkaran col-sm-1" data-container="body" data-toggle="popover" data-placement="right" title="Nama Nasabah" data-content="" ><i class="fas fa-user"></i></i></button>
-						    <select class="custom-select col-sm-6 col text-bold" name="id_nasabah" required  >
-							  <option >Pilih Nasabah</option> 
+
+						    <select class="custom-select col-sm-6 col text-bold" name="id_nasabah" required >
 							  <?php 
 									include 'koneksi.php';
 									$sql = "select * from nasabah";
@@ -111,12 +110,9 @@
 
 								 ?>
 							</select>
-							<a href="data_penarikan.php"><button class="btn-success btn input_setoran" title="Tambah Data Nasabah">Cek Saldo</button></a>					    
+											    
 						</div>
-					    <div class="row from-tambah-sampah">
-					    	<button type="button" class="btn  btn-modal-lingkaran col-sm-1" data-container="body" data-toggle="popover" data-placement="right" title="Kategori Sampah" data-content="" ><i class="fas fa-dollar-sign"></i></button>
-					        <input name="berat_setoran" type="text" class="form-control text-bold col-sm-3" id="input_telp_tamu" title="Berat Sampah" placeholder="0" required disabled value='<?php  ?>'>
-					    </div>
+					    
 					    <div class="row from-tambah-sampah">
 					    	<button type="button" class="btn  btn-modal-lingkaran col-sm-1" data-container="body" data-toggle="popover" data-placement="right" title="Kategori Sampah" data-content="" ><i class="fas fa-dollar-sign"></i></button>
 					        <input name="jumlah_tarik" type="number" class="form-control text-bold col-sm-3" id="input_telp_tamu" title="Berat Sampah" placeholder="Jumlah Penarikan" required  value='<?php  ?>'>
@@ -127,8 +123,7 @@
 					</div>
 				
 					<div class="modal-footer">
-						<!-- <button type="button" name="submit-sampah-update" class="btn btn-success" >Ubah Data</button> -->
-						<button type="submit"  class="btn btn-danger" name="submit" >Tarik Saldo</button>
+						<button type="submit"  class="btn btn-danger" name="submit" onclick="btn_barik_saldo">Tarik Saldo</button>
 						
 					</div>
 			</form>	
@@ -241,31 +236,21 @@
 
 
 	<script type="text/javascript">
-			$(document).ready(function(){ 					// Ketika halaman sudah siap (sudah selesai di load)    
-		   		$("#check-all").click(function(){ 			// Ketika user men-cek checkbox all      
-		   			if($(this).is(":checked")) 				// Jika checkbox all diceklis        
-		   				$(".check-item").prop("checked", true); 	// ceklis semua checkbox siswa dengan class "check-item"      
-		   			else 											// Jika checkbox all tidak diceklis        
-		   				$(".check-item").prop("checked", false); 	// un-ceklis semua checkbox siswa dengan class "check-item"    
-		   		});        
-		   	$("#btn-delete").click(function(){ 				   
-		   				Swal.fire({
-							confirmButtonColor: "#d33",
-							cancelButtonColor: "#aaa",
-							showCancelButton: true,
-							title: 'Hapus data yang dicentang?',
-		  					showConfirmButton: true,
-							confirmButtonText: "Ya",
-							cancelButtonText:"Tidak"
+		
+function btn_barik_saldo() {
+			Swal.fire({
+				title: "Apa yakin ingin menarik saldo?",
+				confirmButtonColor: "#d33",
+				cancelButtonColor: "#aaa",
+				confirmButtonText: "Ya",
+				cancelButtonText:"Tidak",
+				showCancelButton: true
 			}).then((result) => {
 				if (result.value) {
-				    $("#form-delete").submit();
+					
 				}
-			})		
-				});  
-			});
-
-
+			})
+		};
 		   
 
 		$(document).ready(function() {

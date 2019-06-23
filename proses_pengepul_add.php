@@ -17,22 +17,21 @@ include_once("koneksi.php");
 
 // PROSES TAMBAH DATA NASABAH
 try{
-	if(isset($_POST['submit-nasabah-tambah'])) {
-		$id_nasabah = $_POST['id_nasabah'];
-		$nama_nasabah = $_POST['nama_nasabah'];
+	if(isset($_POST['submit-pengepul-tambah'])) {
+		$id_pengepul = $_POST['id_pengepul'];
+		$nama_pengepul = $_POST['nama_pengepul'];
 		$jenis_kelamin = $_POST['jenis_kelamin'];
-		$hp_nasabah = $_POST['hp_nasabah'];
-		$alamat_nasabah = $_POST['alamat_nasabah'];
-		$saldo_nasabah ='0';
+		$hp_pengepul = $_POST['hp_pengepul'];
+		$alamat_pengepul = $_POST['alamat_pengepul'];
 		//insert data to database
-		$sql = "INSERT INTO nasabah VALUES (:id_nasabah, :nama_nasabah, :jenis_kelamin, :hp_nasabah, :alamat_nasabah,:saldo_nasabah )";
+		$sql = "INSERT INTO pengepul VALUES (:id_pengepul, :nama_pengepul, :jenis_kelamin, :hp_pengepul, :alamat_pengepul )";
 		$query = $koneksi->prepare($sql);
-		$query->bindparam(':id_nasabah', $id_nasabah);
-		$query->bindparam(':nama_nasabah', $nama_nasabah);
+		$query->bindparam(':id_pengepul', $id_nasabah);
+		$query->bindparam(':nama_pengepul', $nama_pengepul);
 		$query->bindparam(':jenis_kelamin', $jenis_kelamin);
-		$query->bindparam(':hp_nasabah', $hp_nasabah);
-		$query->bindparam(':alamat_nasabah', $alamat_nasabah);
-		$query->bindparam(':saldo_nasabah', $saldo_nasabah);
+		$query->bindparam(':hp_pengepul', $hp_pengepul);
+		$query->bindparam(':alamat_pengepul', $alamat_pengepul);
+		
 		$query->execute();
 
 		
@@ -40,12 +39,12 @@ try{
 			setTimeout(function () {
 				Swal.fire({
 					type: 'success',
-					title: 'Sukses menambah data Nasabah!',
+					title: 'Sukses menambah data Pengepul!',
 					toast: true,
   					showConfirmButton: true,
   					background:'#91F563'
 				}).then(function() {
-					window.location.href = 'data_nasabah.php';
+					window.location.href = 'data_pengepul.php';
 				})
 			});
 		</script>";

@@ -13,13 +13,6 @@
 				
 			<form method="post" action="proses_nasabah_add.php" >
 					<div class="form-group col from-tambah-sampah">
-					    
-					    <!-- <div class="row from-tambah-sampah">	
-					    	<button type="button" class="btn  btn-modal-lingkaran col-sm-1" data-container="body" data-toggle="popover" data-placement="right" title="ID Nasabah" data-content="" ><i class="fas fa-hashtag"></i></button>
-					    	<input type="text" name="id_sampah" class="form-control text-bold col-sm-8" id="input_nama_tamu" title="Masukkan Kode Sampah"   disabled value="<?php echo $row['id_nasabah']; ?>">
-					    </div> -->
-
-					    <!-- <label for="input_nama_tamu" class="col-sm-6">Nama Sampah</label> -->
 					    <div class="row from-tambah-sampah">
 					    	<button type="button" class="btn  btn-modal-lingkaran col-sm-1" data-container="body" data-toggle="popover" data-placement="right" title="Nama Nasabah" data-content="" ><i class="fas fa-user"></i></button>
 					    	<input type="text" name="nama_nasabah" class="form-control  col-sm-8"  id="input_nama_tamu" title="Masukkan Nama Nasabah" required placeholder="Input nama nasabah">

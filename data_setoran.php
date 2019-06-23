@@ -26,21 +26,22 @@
 	            		<i class="fas fa-times fa-lg" title="Tutup"></i>
 	            	</div>
 	        </div>
-	        <ul class="list-unstyled components bg-dark">
+	       	       <ul class="list-unstyled components bg-dark">
 	        	
 	            <li >
 	            	<a href="home.php" class="icon tipeKamar-li-icon">Home</a>
 	            </li>
 	            <h5 class="menu-categori">MASTER DATA</h5>
-	            <li>
+	            <li  >
 	            	<a href="data_nasabah.php" class="icon tamu-li-icon">Data Nasabah</a>
 	            </li>
+	             <li >
+	            	<a href="data_sampah.php" class="icon dashboard-li-icon">Data Sampah</a>
+	            </li>
 	            <li>
-	            	<a href="#" class="icon tamu-li-icon">Data Pengepul</a>
+	            	<a href="data_pengepul.php" class="icon tamu-li-icon">Data Pengepul</a>
 	            </li>
-	            <li >
-	            	<a href="#" class="icon dashboard-li-icon">Data Sampah</a>
-	            </li>
+	           
 	            <h5 class="menu-categori">TRANSAKSI</h5>
 	            <li class="active">
 	            	<a href="data_setoran.php" class="icon dashboard-li-icon">Setoran Sampah</a>
@@ -48,16 +49,14 @@
 	            <li>
 	            	<a href="data_penarikan.php" class="icon penarikan-li-icon">Penarikan Saldo</a>
 	            </li>
-	            <li>
-	            	<a href="data_penjualan.php" class="icon penjualan-li-icon">Penjualan Saldo</a>
-	            </li>
+	          
 	            
 	            <h5 class="menu-categori">REPORT</h5>
 	            <li>
-	            	<a href="#" class="icon laporan-li-icon">Laporan Master Data</a>
+	            	<a href="report_master.php" class="icon laporan-li-icon">Laporan Master Data</a>
 	            </li>
 	            <li>
-	            	<a href="#" class="icon laporan-li-icon">Laporan Transaksi</a>
+	            	<a href="report_transaksi.php" class="icon laporan-li-icon">Laporan Transaksi</a>
 	            </li>
 	        </ul>
 	    </nav>
@@ -111,7 +110,7 @@
 
 								 ?>
 							</select>
-							<a href="data_nasabah.php"><button class="btn-success btn input_setoran" title="Tambah Data Nasabah"><i class="fas fa-plus"></i>Nasabah</button></a>					    
+										    
 						</div>
 					    <div class="row from-tambah-sampah">
 					    	<button type="button" class="btn  btn-modal-lingkaran col-sm-1" data-container="body" data-toggle="popover" data-placement="right" title="Kategori Sampah" data-content="" ><i class="fas fa-trash-alt"></i></i></button>
@@ -129,38 +128,33 @@
 								 ?>
 							</select>
 
-					        <input name="berat_setoran" type="number" class="form-control text-bold col-sm-2 input_setoran" id="input_telp_tamu" title="Berat Sampah" placeholder="Berat Sampah" required step=0.01>
-					        <a href=""><button class="btn-success btn input_setoran " style="margin-left: 40px;" title="Tambah setoran"><i class="fas fa-plus"></i></button></a>	
+					        <input name="berat_setoran" type="number" class="form-control text-bold col-sm-2 input_setoran" id="input_telp_tamu" title="Berat Sampah" placeholder="Berat Sampah" required step=0.1>
+					    	
 					    </div>
-					   
-
+					   <div class=" row from-tambah-sampah margin-l-tombol-simpan">
+						<!-- <button type="button" name="submit-sampah-update" class="btn btn-success" >Ubah Data</button> -->
+						<button type="submit"  class="btn btn-success" name="submit" >Simpan</button>
+					
+					</div>
+<hr>
 					      	
 					</div>
 				
-					<div class="modal-footer">
-						<!-- <button type="button" name="submit-sampah-update" class="btn btn-success" >Ubah Data</button> -->
-						<button type="submit"  class="btn btn-success" name="submit" >Simpan</button>
-						
-					</div>
+					
 			</form>	
 			<div class="text-center"><h4>SETORAN SAMPAH</h4></div>
 			<div class="table-responsive">
 						<table id="tb-setoran_sampah" class="table table-striped nowrap table-hover table-sm  table-bordered "  cellspacing="0" width="100%">
 					        <thead class="thead-dark text-center">
 					            <tr>
-					                <th class="header-table" width="60px;" rowspan="2">View</th>
+					                <th class="header-table" width="60px;" >View</th>
 					                <th class="header-table "  >Tanggal</th>
-
 					                <th class="header-table"  >Nasabah</th>
 					                <th class="header-table" >Jenis Sampah</th>
 					                <th class="header-table" >Harga/Kg</th>
 					                <th class="header-table " >Berat</th>
 					                <th class="header-table " >Totap Rp.</th>
 					                <th class="header-table " >Keterangan</th>
-
-					                <!-- <th class="header-table" width="100px;">DHS 2</th>
-					                <th class="header-table" width="100px;">PENGEPUL</th> -->
-					                <!-- <th class="header-table" width="100px;"><center>Aksi</center></th> -->
 					            </tr>
 					            
 
@@ -187,7 +181,7 @@
 											
 											<td class="text-nowrap" align="center">
 
-								    			<a href='#lihat_sampah_<?php echo $row['id_sampah']; ?>' data-toggle='modal' title='Lihat Data' data-target='#lihat_sampah_<?php echo $row['id_sampah']; ?>'>
+								    			<a href='#view_setoran_<?php echo $row['id_setoran']; ?>' data-toggle='modal' title='Lihat Data' data-target='#view_setoran_<?php echo $row['id_setoran']; ?>'>
 													<button class='btn  btn-data-aksi'>
 														<i class='far fa-eye'></i>
 													</button>
@@ -218,12 +212,7 @@
 									$no++;
 									?> 
 							    	<?php 
-							    		include('modal_sampah_delete.php'); 
-								    	include('modal_update_tamu.php'); 
-								    	// include('modal_delete_tamu.php'); 
-								    	include('modal_sampah_add.php'); 
-								    	include('modal_sampah_update.php'); 
-								    	// include('modal_sampah_view.php');
+							    		include 'modal_setoran_view.php';
 								    ?> 
 							    	<?php
 									}

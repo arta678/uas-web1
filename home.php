@@ -7,6 +7,7 @@
 	$nasabah = "SELECT * FROM nasabah";
 	$sampah  = "SELECT * FROM sampah";
 	$setoran  = "SELECT * FROM setoran_sampah";
+	$penarikan = "SELECT * FROM penarikan_saldo";
 
 
 // JUMLAH NASABAH
@@ -23,6 +24,11 @@
 	$setoran = $koneksi->prepare($setoran);
 	$setoran->execute();
 	$jum_setoran = $setoran->rowCount();
+
+	// JUMLAH SETORAN
+	$penarikan = $koneksi->prepare($penarikan);
+	$penarikan->execute();
+	$jum_penarikan = $penarikan->rowCount();
 
 ?>
 <!DOCTYPE html>
@@ -53,38 +59,37 @@
 	            		<i class="fas fa-times fa-lg" title="Tutup"></i>
 	            	</div>
 	        </div>
-	        <ul class="list-unstyled components bg-dark">
+	         	       <ul class="list-unstyled components bg-dark">
 	        	
 	            <li class="active">
 	            	<a href="home.php" class="icon tipeKamar-li-icon">Home</a>
 	            </li>
 	            <h5 class="menu-categori">MASTER DATA</h5>
-	            <li>
+	            <li  >
 	            	<a href="data_nasabah.php" class="icon tamu-li-icon">Data Nasabah</a>
 	            </li>
+	             <li >
+	            	<a href="data_sampah.php" class="icon dashboard-li-icon">Data Sampah</a>
+	            </li>
 	            <li>
-	            	<a href="#" class="icon tamu-li-icon">Data Pengepul</a>
+	            	<a href="data_pengepul.php" class="icon tamu-li-icon">Data Pengepul</a>
 	            </li>
-	            <li >
-	            	<a href="#" class="icon dashboard-li-icon">Data Sampah</a>
-	            </li>
+	           
 	            <h5 class="menu-categori">TRANSAKSI</h5>
-	            <li>
+	            <li >
 	            	<a href="data_setoran.php" class="icon dashboard-li-icon">Setoran Sampah</a>
 	            </li>
 	            <li>
 	            	<a href="data_penarikan.php" class="icon penarikan-li-icon">Penarikan Saldo</a>
 	            </li>
-	            <li>
-	            	<a href="data_penjualan.php" class="icon penjualan-li-icon">Penjualan Saldo</a>
-	            </li>
+	          
 	            
 	            <h5 class="menu-categori">REPORT</h5>
 	            <li>
-	            	<a href="#" class="icon laporan-li-icon">Laporan Master Data</a>
+	            	<a href="report_master.php" class="icon laporan-li-icon">Laporan Master Data</a>
 	            </li>
 	            <li>
-	            	<a href="#" class="icon laporan-li-icon">Laporan Transaksi</a>
+	            	<a href="report_transaksi.php" class="icon laporan-li-icon">Laporan Transaksi</a>
 	            </li>
 	        </ul>
 	        <!-- <div class="personal-info">
@@ -175,9 +180,9 @@
 	        		</div>
 	        		<div class="col-sm-3">
 	        			<div class="dashboard-content">
-	        				<a href="dashboard.php" title="Lihat Setoran Hari Ini">
+	        				<a href="data_penarikan.php" title="Lihat Setoran Hari Ini">
 	        				<p class="title-content">BANYAK PENARIKAN SALDO </p>
-	        				<p class="keterangan"><?php echo "$jum_setoran"; ?></p>
+	        				<p class="keterangan"><?php echo "$jum_penarikan"; ?></p>
 	        				<div class="icon icon-content"><i class="fas fa-shopping-cart"></i></div>
 	        				</a>
 	        				<!-- <a href="#" class="content-dashboard-footer foo-4">
@@ -199,7 +204,7 @@
 	        			<div class="dashboard-content ">
 	        				
 	        				<p class="title-content"> NASABAH </p>
-	        				<a href="dashboard.php" title="Lihat Nasabah"><p class=" view-home"><button class="btn-outline-danger">VIEW</button></p>
+	        				<a href="report_master_nasabah.php" title="Lihat Nasabah"><p class=" view-home"><button class="btn-outline-danger">VIEW</button></p>
 	        				<div class="icon icon-content"><i class="fas fa-users"></i></div>
 	        				</a>
 	        				<!-- <a href="index_tamu.php" class="content-dashboard-footer foo-1">
@@ -211,7 +216,7 @@
 	        			<div class="dashboard-content">
 	        				
 	        				<p class="title-content"> SAMPAH</p>
-	        				<a href="dashboard.php" title="Lihat Nasabah"><p class=" view-home"><button class="btn-outline-danger">VIEW</button></p>
+	        				<a href="report_master_sampah.php" title="Lihat Nasabah"><p class=" view-home"><button class="btn-outline-danger">VIEW</button></p>
 	        				<div class="icon icon-content"><i class="fas fa-trash-alt"></i></div>
 	        				</a>
 	        				
@@ -224,7 +229,7 @@
 	        			<div class="dashboard-content">
 	        				
 	        				<p class="title-content"> PENGEPUL </p>
-	        				<a href="dashboard.php" title="Lihat Nasabah"><p class=" view-home"><button class="btn-outline-danger">VIEW</button></p>
+	        				<a href="report_master_pengepul.php" title="Lihat Nasabah"><p class=" view-home"><button class="btn-outline-danger">VIEW</button></p>
 	        				<div class="icon icon-content"><i class="fas fa-users"></i></div>
 	        				</a>
 	        				<!-- <a href="#" class="content-dashboard-footer foo-3">
@@ -236,7 +241,7 @@
 	        			<div class="dashboard-content">
 	        				
 	        				<p class="title-content"> TRANSAKSI</p>
-	        				<a href="dashboard.php" title="Lihat Nasabah"><p class=" view-home"><button class="btn-outline-danger">VIEW</button></p>
+	        				<a href="report_transaksi_setoran.php" title="Lihat Nasabah"><p class=" view-home"><button class="btn-outline-danger">VIEW</button></p>
 	        				<div class="icon icon-content"><i class="fas fa-shopping-cart"></i></div>
 	        				</a>
 	        				<!-- <a href="#" class="content-dashboard-footer foo-4">
@@ -292,7 +297,7 @@
 				showCancelButton: true
 			}).then((result) => {
 				if (result.value) {
-					window.location = 'login.php';
+					window.location = 'index.php';
 				}
 			})
 		};

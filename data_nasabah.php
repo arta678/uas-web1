@@ -25,38 +25,37 @@
 	            		<i class="fas fa-times fa-lg" title="Tutup"></i>
 	            	</div>
 	        </div>
-	       <ul class="list-unstyled components bg-dark">
+	      <ul class="list-unstyled components bg-dark">
 	        	
 	            <li >
 	            	<a href="home.php" class="icon tipeKamar-li-icon">Home</a>
 	            </li>
 	            <h5 class="menu-categori">MASTER DATA</h5>
-	            <li class="active">
+	            <li class="active" >
 	            	<a href="data_nasabah.php" class="icon tamu-li-icon">Data Nasabah</a>
 	            </li>
-	            <li>
-	            	<a href="#" class="icon tamu-li-icon">Data Pengepul</a>
-	            </li>
-	            <li >
+	             <li >
 	            	<a href="data_sampah.php" class="icon dashboard-li-icon">Data Sampah</a>
 	            </li>
-	            <h5 class="menu-categori">TRANSAKSI</h5>
 	            <li>
+	            	<a href="data_pengepul.php" class="icon tamu-li-icon">Data Pengepul</a>
+	            </li>
+	           
+	            <h5 class="menu-categori">TRANSAKSI</h5>
+	            <li >
 	            	<a href="data_setoran.php" class="icon dashboard-li-icon">Setoran Sampah</a>
 	            </li>
 	            <li>
 	            	<a href="data_penarikan.php" class="icon penarikan-li-icon">Penarikan Saldo</a>
 	            </li>
-	            <li>
-	            	<a href="data_penjualan.php" class="icon penjualan-li-icon">Penjualan Saldo</a>
-	            </li>
+	          
 	            
 	            <h5 class="menu-categori">REPORT</h5>
 	            <li>
-	            	<a href="#" class="icon laporan-li-icon">Laporan Master Data</a>
+	            	<a href="report_master.php" class="icon laporan-li-icon">Laporan Master Data</a>
 	            </li>
 	            <li>
-	            	<a href="#" class="icon laporan-li-icon">Laporan Transaksi</a>
+	            	<a href="report_transaksi.php" class="icon laporan-li-icon">Laporan Transaksi</a>
 	            </li>
 	        </ul>
 	    </nav>
@@ -81,7 +80,8 @@
 		        			<button class="btn btn-outline-danger bt-input-tamu btn-hapus" type="button" id="btn-delete"><i class="fas fa-times"></i>Hapus</button>
 		        			
 		        			</div>
-						<div class="table-responsive">
+		        			<hr>
+						<div class="table-responsive margin-tabel">
 						<table id="tb-nasabah" class="table table-striped nowrap table-hover table-sm  table-bordered "  cellspacing="0" width="100%">
 					        <thead class="thead-dark text-center">
 					            <tr>
@@ -92,6 +92,7 @@
 					                <th class="header-table" >Jenis Kelamin</th>
 					                <th class="header-table" >Nomor HP</th>
 					                <th class="header-table" >Alamat Nasabah</th>
+					                <th class="header-table" >Saldo</th>
 					            </tr>
 					        </thead>
 					        <tbody>
@@ -129,6 +130,7 @@
 											<td><?php echo $row['jenis_kelamin']; ?></td>
 								    		<td><?php echo $row['hp_nasabah']; ?></td>
 								    		<td><?php echo $row['alamat_nasabah']; ?></td>
+								    		<td><?php echo $row['saldo_nasabah']; ?></td>
 								    	</tr>
 
 								    <?php
@@ -137,7 +139,7 @@
 									<?php 
 										include('modal_sampah_delete.php');
 										 include('modal_update_tamu.php'); 
-										 include('modal_delete_tamu.php'); 
+										 // include('modal_delete_tamu.php'); 
 										 include('modal_sampah_add.php'); 
 										 // include('modal_sampah_update.php'); 
 										 include 'modal_nasabah_update.php';
@@ -218,9 +220,9 @@
 		    	// B = buttons, 
 		    	// p = pagination
 		    	dom:
-				    "<'row'<'col-sm-12'f>>" +
+				    "<'row'<'col-sm-6'l><'col-sm-6'f>>" +
 				    "<'row'<'col-sm-12't>>" +
-				    "<'row'<'col-sm-6'l><'col-sm-6'p>>",
+				    "<'row'<'col-sm-12'p>>",
 		    	//DISABLE SHORTING TABLE COLUMN
 				"columns": [
 				    null,
@@ -228,7 +230,9 @@
 				    null,
 				    null,
 				    null,
+				    null,    
 				    null,
+
 				    
 				   
 				    { "orderable": false }

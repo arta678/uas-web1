@@ -34,21 +34,15 @@
 							</select>
 					    </div>
 					    <div class="row from-tambah-sampah">
-					    	<button type="button" class="btn  btn-modal-lingkaran col-sm-1" data-container="body" data-toggle="popover" data-placement="right" title="Harga Datang" data-content="" ><i class="fas fa-dollar-sign"></i></button>
+					    	<button type="button" class="btn  btn-modal-lingkaran col-sm-1" data-container="body" data-toggle="popover" data-placement="right" title="Harga Beli" data-content="" ><i class="fas fa-dollar-sign"></i></button>
 					        <input name="harga_datang" type="number" class="form-control text-bold col-sm-8" id="input_telp_tamu" title="Harga Sampah Saat Nasabah Datang ke Bank Sampah" required placeholder="Harga Datang" value="<?php echo $row['harga_datang']; ?>">
 					    </div>
 
-					    <!-- <label for="input_nama_tamu" class="col-sm-6">Harga Jemput</label> -->
-					    <div class="row from-tambah-sampah">
-					    	<button type="button" class="btn  btn-modal-lingkaran col-sm-1" data-container="body" data-toggle="popover" data-placement="right" title="Harga Jemputan" data-content="" ><i class="fas fa-dollar-sign"></i></button>
-					        <input name="harga_jemput" type="number" class="form-control text-bold col-sm-8" id="input_telp_tamu" title="Harga Sampah Jemputan" placeholder="Harga Jemput" required value="<?php echo $row['harga_jemput']; ?>">
-					        	
-					      	
-					    </div>
+					   
 
 					    <!-- <label for="input_nama_tamu" class="col-sm-6">Harga Pengepul</label> -->
 					    <div class="row from-tambah-sampah">
-					    	<button type="button" class="btn  btn-modal-lingkaran col-sm-1" data-container="body" data-toggle="popover" data-placement="right" title="Harga Pengepul" data-content="" ><i class="fas fa-dollar-sign"></i></button>
+					    	<button type="button" class="btn  btn-modal-lingkaran col-sm-1" data-container="body" data-toggle="popover" data-placement="right" title="Harga Jual" data-content="" ><i class="fas fa-dollar-sign"></i></button>
 					        <input name="harga_pengepul" type="number" class="form-control text-bold col-sm-8" id="input_telp_tamu" title="Harga Sampah Ke Pengepul" placeholder="Harga Pengepul" required value="<?php echo $row['harga_pengepul']; ?>">
 					        	
 					    </div>

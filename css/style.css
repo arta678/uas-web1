@@ -394,7 +394,7 @@ input.text-bold{
 }
 
 .dashboard-content {
-    height: auto;
+    height: 150px;
     margin: 10px 0;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
@@ -907,9 +907,16 @@ h5.h1-title-header span{
     top: 10p
 }*/
 
+.margin-l-tombol-simpan{
+    margin-left: 30px;
+}
+
 .bg-warna-tambah{
     background-color: #1DAB3D;
     color: #fff;
+}
+.margin-tabel{
+    margin-top: 20px;
 }
 
 .header-table{

@@ -25,38 +25,37 @@
 	            		<i class="fas fa-times fa-lg" title="Tutup"></i>
 	            	</div>
 	        </div>
-	        <ul class="list-unstyled components bg-dark">
+	       	       <ul class="list-unstyled components bg-dark">
 	        	
 	            <li >
 	            	<a href="home.php" class="icon tipeKamar-li-icon">Home</a>
 	            </li>
 	            <h5 class="menu-categori">MASTER DATA</h5>
-	            <li>
+	            <li  >
 	            	<a href="data_nasabah.php" class="icon tamu-li-icon">Data Nasabah</a>
 	            </li>
+	             <li class="active">
+	            	<a href="data_sampah.php" class="icon dashboard-li-icon">Data Sampah</a>
+	            </li>
 	            <li>
-	            	<a href="#" class="icon tamu-li-icon">Data Pengepul</a>
+	            	<a href="data_pengepul.php" class="icon tamu-li-icon">Data Pengepul</a>
 	            </li>
-	            <li class="active">
-	            	<a href="#" class="icon dashboard-li-icon">Data Sampah</a>
-	            </li>
+	           
 	            <h5 class="menu-categori">TRANSAKSI</h5>
-	            <li>
+	            <li >
 	            	<a href="data_setoran.php" class="icon dashboard-li-icon">Setoran Sampah</a>
 	            </li>
 	            <li>
 	            	<a href="data_penarikan.php" class="icon penarikan-li-icon">Penarikan Saldo</a>
 	            </li>
-	            <li>
-	            	<a href="data_penjualan.php" class="icon penjualan-li-icon">Penjualan Saldo</a>
-	            </li>
+	          
 	            
 	            <h5 class="menu-categori">REPORT</h5>
 	            <li>
-	            	<a href="#" class="icon laporan-li-icon">Laporan Master Data</a>
+	            	<a href="report_master.php" class="icon laporan-li-icon">Laporan Master Data</a>
 	            </li>
 	            <li>
-	            	<a href="#" class="icon laporan-li-icon">Laporan Transaksi</a>
+	            	<a href="report_transaksi.php" class="icon laporan-li-icon">Laporan Transaksi</a>
 	            </li>
 	        </ul>
 	    </nav>
@@ -85,10 +84,10 @@
 						<table id="tb-sampah" class="table table-striped nowrap table-hover table-sm  table-bordered "  cellspacing="0" width="100%">
 					        <thead class="thead-dark text-center">
 					            <tr>
-					                <th class="header-table" width="60px;" rowspan="2"></th>
-					                <th class="header-table "  rowspan="2"><input type="checkbox" id="check-all"></th>
+					                <th class="header-table" width="60px;"></th>
+					                <th class="header-table "  ><input type="checkbox" id="check-all"></th>
 
-					                <th class="header-table" width="50px;" rowspan="2">Kode</th>
+					                <th class="header-table" width="50px;" >Kode</th>
 					                <th class="header-table" >Jenis Sampah</th>
 					                <th class="header-table" >Kategori</th>
 					                <th class="header-table" >Harga Beli</th>
@@ -231,9 +230,9 @@
 		    	// B = buttons, 
 		    	// p = pagination
 		    	dom:
-				    "<'row'<'col-sm-12'f>>" +
+				    "<'row'<'col-sm-6'l><'col-sm-6'f>>" +
 				    "<'row'<'col-sm-12't>>" +
-				    "<'row'<'col-sm-6'l><'col-sm-6'p>>",
+				    "<'row'<'col-sm-12'p>>",
 		    	//DISABLE SHORTING TABLE COLUMN
 				"columns": [
 				    null,
@@ -242,7 +241,7 @@
 				    null,
 				    null,
 				    null,
-
+				    
 				   
 				    { "orderable": false }
 				]
